@@ -7,6 +7,10 @@
   <ng-template ngFor let-stat [ngForOf]="stats">
     <div class="tab-pane fade" id="{{ stat.year }}" role="tabpanel" >
         <h2>{{ stat.year }} Stats</h2>
+        <h2>{{ stat.combat.kills_wormhole }} Stats</h2>
+        <app-character-stat label="High Sec" [value]="stat.combat.kills_wormhole"></app-character-stat>
+        <app-character-stat label="High Sec" [value]="stat.combat.kills_high_sec">
+        </app-character-stat>
      </div>
   </ng-template>
 </div>

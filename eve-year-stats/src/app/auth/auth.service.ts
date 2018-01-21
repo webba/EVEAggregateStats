@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   private tokens: TokenData[];
+  private currentToken: TokenData;
 
   constructor(private _http: HttpClient,
     @Optional() private _authServiceConfig: AuthServiceConfig
@@ -147,6 +148,13 @@ export class AuthService {
           observer.next(value);
         }
       });
+    });
+  }
+
+  public getCurrentToken(): Observable<TokenData> {
+    const self = this;
+    return Observable.create(function (observer) {
+      observer.next(self.currentToken);
     });
   }
 
