@@ -2,12 +2,14 @@ import { Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { AuthServiceConfig } from './auth.service.config';
 import { Observable } from 'rxjs/Observable';
+import { CharacterService } from '../esi/index';
 
 @Injectable()
 export class AuthService {
   private tokens: TokenData[];
 
   constructor(private _http: HttpClient,
+    private _characterApi: CharacterService,
     @Optional() private _authServiceConfig: AuthServiceConfig
   ) {
     this.loadTokens();
@@ -69,12 +71,8 @@ export class AuthService {
     });
   }
 
-  public getEndYearStats(CharacterID: number, AccessToken: string): Observable<Object> {
-    return this._http.get('https://esi.tech.ccp.is/latest/characters/' + CharacterID.toString() + '/stats/', {
-      headers: new HttpHeaders()
-        .set('Authorization', 'Bearer ' + AccessToken)
-        .set('Content-Type', 'text/json')
-    });
+  public getEndYearStats(CharacterID: number, AccessToken: string): Observable<Array<Object>> {
+    return this._characterApi.getCharactersCharacterIdStats(CharacterID, 'tranquility', AccessToken);
   }
 
   private loadTokens(): void {

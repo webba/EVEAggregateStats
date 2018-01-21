@@ -30,6 +30,7 @@ export class YearEndStatsComponent implements OnInit {
       this._authService.getEndYearStats(token.tokenInfo.CharacterID, token.oAuthToken.accessToken)
       .subscribe((data) => {
         this.displayText = JSON.stringify(data);
+        console.log(data);
       }, (error) => {
         this.displayText = JSON.stringify(error);
       }, () => {
