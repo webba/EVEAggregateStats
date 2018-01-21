@@ -61,7 +61,7 @@ export class AuthService {
   }
 
   public getUserInfo(token: OAuth2Token): Observable<HttpResponse<TokenInfo>> {
-    return this._http.get<TokenInfo>(this._authServiceConfig.userinfoEndpoint, {
+    return this._http.get<TokenInfo>(this._authServiceConfig.userinfoEndpoint + '?token=' + token.accessToken, {
       observe: 'response',
       headers: new HttpHeaders()
         .set('Authorization', 'Bearer ' + token.accessToken)
@@ -111,6 +111,17 @@ export class AuthService {
       }
     });
     this.saveTokens();
+  }
+
+  public getToken(CharacterID: number): Observable<TokenData> {
+    const self = this;
+    return Observable.create(function (observer) {
+      self.tokens.forEach(value => {
+        if (value.tokenInfo.CharacterID === CharacterID) {
+          observer.next(value);
+        }
+      });
+    });
   }
 
 }

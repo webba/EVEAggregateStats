@@ -2,7 +2,7 @@
   year-end-stats works!
   {{ displayText }}
 </p>
-<div *ngIf="token">
+<div *ngIf="token$ | async as token">
   <h2>{{ token.tokenInfo.CharacterName | uppercase }} Details</h2>
   <div>
     <span>id: </span>{{ token.tokenInfo.CharacterID }}

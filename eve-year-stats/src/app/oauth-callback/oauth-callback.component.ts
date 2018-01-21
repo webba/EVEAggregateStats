@@ -14,8 +14,10 @@ export class OAuthCallbackComponent implements OnInit {
     const token = this._authService.getTokenFromUrl();
     if (token !== null) {
       const userInfo = this._authService.getUserInfo(token).subscribe((response) => {
+        console.log(response);
         if (response.ok) {
           token.expires = new Date(response.headers.get('expires'));
+          console.log(response.headers.get('expires'));
           this._authService.addToken(response.body, token);
         }
         this._router.navigate(['/']);

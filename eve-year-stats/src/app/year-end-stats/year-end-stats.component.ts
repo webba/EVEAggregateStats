@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 import { AuthService, TokenData } from '../auth/auth.service';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-year-end-stats',
@@ -9,36 +11,29 @@ import { AuthService, TokenData } from '../auth/auth.service';
 })
 export class YearEndStatsComponent implements OnInit {
   public displayText: string;
-  public token: TokenData;
+  public token$: Observable<TokenData>;
+  private id: number;
 
   constructor(
     private _authService: AuthService,
     private _route: ActivatedRoute
   ) {
     console.log(_authService.getTokens());
-    const self = this;
-    if (this._authService.getTokens().length > 0) {
-      _authService.getEndYearStats(_authService.getTokens()[0].tokenInfo.CharacterID, _authService.getTokens()[0].oAuthToken.accessToken)
-      .subscribe((data) => {
-        self.displayText = JSON.stringify(data);
-      }, (error) => {
-        self.displayText = JSON.stringify(error);
-      }, () => {
-      });
-    }
    }
 
   ngOnInit() {
-    this.getToken();
-  }
+    this.token$ = this._route.paramMap.switchMap((params: ParamMap) => {
+      return this._authService.getToken(parseFloat(params.get('id')));
+    });
 
-  getToken(): void {
-    const self = this;
-    const id = +this._route.snapshot.paramMap.get('id');
-    this._authService.getTokens().forEach((value) => {
-      if (value.tokenInfo.CharacterID === id) {
-        self.token = value;
-      }
+    this.token$.subscribe(token => {
+      this._authService.getEndYearStats(token.tokenInfo.CharacterID, token.oAuthToken.accessToken)
+      .subscribe((data) => {
+        this.displayText = JSON.stringify(data);
+      }, (error) => {
+        this.displayText = JSON.stringify(error);
+      }, () => {
+      });
     });
   }
 
