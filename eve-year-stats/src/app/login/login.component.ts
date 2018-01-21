@@ -15,13 +15,6 @@ export class LoginComponent implements OnInit {
     location.href = this._authService.getLoginUrl();
   }
 
-  public logoff() {
-  }
-
-  public get name() {
-    return null;
-  }
-
   ngOnInit() {
   }
 
