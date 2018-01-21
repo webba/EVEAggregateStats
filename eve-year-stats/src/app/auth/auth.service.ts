@@ -118,7 +118,7 @@ export class AuthService {
   public getToken(CharacterID: number): Observable<TokenData> {
     const self = this;
     return Observable.create(function (observer) {
-      self.tokens.forEach(value => {
+      self.getTokens().forEach(value => {
         if (value.tokenInfo.CharacterID === CharacterID) {
           observer.next(value);
         }
