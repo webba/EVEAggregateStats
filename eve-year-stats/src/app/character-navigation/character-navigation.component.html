@@ -1,0 +1,7 @@
+<p>
+  character-navigation works!
+</p>
+<ul>
+  <li *ngFor="let token of tokens"><a routerLink="/stats/{{ token.tokenInfo.CharacterID }}">{{ token.tokenInfo.CharacterName }}</a></li>
+</ul>
+<router-outlet></router-outlet>

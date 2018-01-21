@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-oauth-callback',
@@ -8,12 +10,18 @@ import { AuthService } from '../auth/auth.service';
 })
 export class OAuthCallbackComponent implements OnInit {
 
-  constructor(private _authService: AuthService) {
+  constructor(private _authService: AuthService, private _router: Router) {
     const token = this._authService.getTokenFromUrl();
-    console.log(token);
     if (token !== null) {
-      const userInfo = this._authService.getUserInfo(token);
-      console.log(userInfo);
+      const userInfo = this._authService.getUserInfo(token).subscribe((response) => {
+        if (response.ok) {
+          token.expires = new Date(response.headers.get('expires'));
+          this._authService.addToken(response.body, token);
+        }
+        this._router.navigate(['/']);
+      });
+    } else {
+      this._router.navigate(['/']);
     }
    }
 

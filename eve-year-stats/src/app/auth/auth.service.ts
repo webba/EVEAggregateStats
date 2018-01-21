@@ -1,14 +1,17 @@
 import { Injectable, Optional } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { AuthServiceConfig } from './auth.service.config';
-
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
+  private tokens: TokenData[];
 
   constructor(private _http: HttpClient,
     @Optional() private _authServiceConfig: AuthServiceConfig
-  ) { }
+  ) {
+    this.loadTokens();
+   }
 
   public configure(__authServiceConfig: AuthServiceConfig) {
     this._authServiceConfig = __authServiceConfig;
@@ -37,17 +40,18 @@ export class AuthService {
     const token = new OAuth2Token();
     params.forEach(function (value, index) {
       const data = value.split('=');
-      console.log(value);
       if (data.length === 2) {
         const key = decodeURIComponent(data[0]);
         const val = decodeURIComponent(data[1]);
 
         if (key === 'access_token') {
-          token.access_token = val;
+          token.accessToken = val;
         } else if (key === 'token_type') {
-          token.token_type = val;
+          token.tokenType = val;
         } else if (key === 'expires_in') {
-          token.expires_in = parseFloat(val);
+          const date = new Date();
+          date.setSeconds(date.getSeconds()  + parseFloat(val));
+          token.expires = date;
         } else if (key === 'state') {
           token.state = val;
         }
@@ -56,23 +60,82 @@ export class AuthService {
     return token;
   }
 
-  public getUserInfo(token: OAuth2Token): Object {
-    const resp = this._http.get<Object>(this._authServiceConfig.userinfoEndpoint, {
+  public getUserInfo(token: OAuth2Token): Observable<HttpResponse<TokenInfo>> {
+    return this._http.get<TokenInfo>(this._authServiceConfig.userinfoEndpoint, {
+      observe: 'response',
       headers: new HttpHeaders()
-        .set('Authorization', 'Bearer ' + token.access_token)
+        .set('Authorization', 'Bearer ' + token.accessToken)
         .set('Content-Type', 'text/json')
-    }).toPromise().then(function(re) { console.log(re); });
-    return resp;
+    });
+  }
+
+  public getEndYearStats(CharacterID: number, AccessToken: string): Observable<Object> {
+    return this._http.get('https://esi.tech.ccp.is/latest/characters/' + CharacterID.toString() + '/stats/', {
+      headers: new HttpHeaders()
+        .set('Authorization', 'Bearer ' + AccessToken)
+        .set('Content-Type', 'text/json')
+    });
+  }
+
+  private loadTokens(): void {
+    this.tokens =  JSON.parse(localStorage.getItem('tokens')) || [];
+  }
+
+  private saveTokens(): void {
+    localStorage.setItem('tokens', JSON.stringify(this.tokens));
+  }
+
+  public getTokens(): TokenData[] {
+    const self = this;
+    this.tokens.forEach((element, index, array) => {
+      if ((new Date()) >= (new Date(element.tokenInfo.ExpiresOn))) {
+        self.removeToken(element.tokenInfo.CharacterID);
+      }
+    });
+    return this.tokens;
+  }
+
+  public addToken(tokenInfo: TokenInfo, oAuthToken: OAuth2Token): void {
+    this.removeToken(tokenInfo.CharacterID);
+    const data = new TokenData();
+    data.tokenInfo = tokenInfo;
+    data.oAuthToken = oAuthToken;
+    this.tokens.push(data);
+    this.saveTokens();
+  }
+
+  public removeToken(CharacterID: number): void {
+    this.tokens.forEach(function (value, index, list) {
+      if (value.tokenInfo.CharacterID === CharacterID) {
+        list.splice(index);
+      }
+    });
+    this.saveTokens();
   }
 
 }
 
+export class TokenData {
+  tokenInfo: TokenInfo;
+  oAuthToken: OAuth2Token;
+}
+
 export class OAuth2Token {
-  public access_token = '';
+  public accessToken = '';
 
-  public token_type = '';
+  public tokenType = '';
 
-  public expires_in = 0;
+  public expires = new Date();
 
   public state = '';
+}
+
+export class TokenInfo {
+  CharacterID: number;
+  CharacterName: string;
+  CharacterOwnerHash: string;
+  ExpiresOn: string;
+  IntellectualProperty: string;
+  Scopes: string;
+  TokenType: string;
 }
