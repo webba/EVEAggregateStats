@@ -88,7 +88,8 @@ export class AuthService {
   public getTokens(): TokenData[] {
     const self = this;
     this.tokens.forEach((element, index, array) => {
-      if ((new Date()) >= (new Date(element.tokenInfo.ExpiresOn))) {
+      if ((new Date()).getTime() <= (new Date(element.tokenInfo.ExpiresOn).getTime())) {
+        console.log(element);
         self.removeToken(element.tokenInfo.CharacterID);
       }
     });
@@ -105,12 +106,13 @@ export class AuthService {
   }
 
   public removeToken(CharacterID: number): void {
+    const self = this;
     this.tokens.forEach(function (value, index, list) {
       if (value.tokenInfo.CharacterID === CharacterID) {
         list.splice(index);
+        self.saveTokens();
       }
     });
-    this.saveTokens();
   }
 
   public getToken(CharacterID: number): Observable<TokenData> {

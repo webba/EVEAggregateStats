@@ -19,6 +19,7 @@ export class OAuthCallbackComponent implements OnInit {
           token.expires = new Date(response.headers.get('expires'));
           console.log(response.headers.get('expires'));
           this._authService.addToken(response.body, token);
+          console.log( this._authService.getTokens() );
         }
         this._router.navigate(['/']);
       });
