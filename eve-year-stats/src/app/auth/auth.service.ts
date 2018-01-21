@@ -88,7 +88,7 @@ export class AuthService {
   public getTokens(): TokenData[] {
     const self = this;
     this.tokens.forEach((element, index, array) => {
-      if ((new Date()).getTime() <= (new Date(element.tokenInfo.ExpiresOn).getTime())) {
+      if ((new Date()).getTime() >= element.oAuthToken.expires.getTime()) {
         console.log(element);
         self.removeToken(element.tokenInfo.CharacterID);
       }
