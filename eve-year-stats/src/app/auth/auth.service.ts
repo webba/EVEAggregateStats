@@ -78,7 +78,31 @@ export class AuthService {
   }
 
   private loadTokens(): void {
-    this.tokens =  JSON.parse(localStorage.getItem('tokens')) || [];
+    const data =  JSON.parse(localStorage.getItem('tokens')) || [];
+
+    this.tokens = [];
+
+    // Parse Dates
+    data.forEach((value, index, array) => {
+      const parsedToken = new TokenData();
+
+      parsedToken.oAuthToken = new OAuth2Token();
+      parsedToken.oAuthToken.accessToken = value.oAuthToken.accessToken;
+      parsedToken.oAuthToken.expires = new Date(value.oAuthToken.expires);
+      parsedToken.oAuthToken.state = value.oAuthToken.state;
+      parsedToken.oAuthToken.tokenType = value.oAuthToken.tokenType;
+
+      parsedToken.tokenInfo = new TokenInfo();
+      parsedToken.tokenInfo.CharacterID = value.tokenInfo.CharacterID;
+      parsedToken.tokenInfo.CharacterName = value.tokenInfo.CharacterName;
+      parsedToken.tokenInfo.CharacterOwnerHash = value.tokenInfo.CharacterOwnerHash;
+      parsedToken.tokenInfo.ExpiresOn = value.tokenInfo.ExpiresOn;
+      parsedToken.tokenInfo.IntellectualProperty = value.tokenInfo.IntellectualProperty;
+      parsedToken.tokenInfo.Scopes = value.tokenInfo.Scopes;
+      parsedToken.tokenInfo.TokenType = value.tokenInfo.TokenType;
+
+      this.tokens.push(parsedToken);
+    });
   }
 
   private saveTokens(): void {
@@ -89,7 +113,6 @@ export class AuthService {
     const self = this;
     this.tokens.forEach((element, index, array) => {
       if ((new Date()).getTime() >= element.oAuthToken.expires.getTime()) {
-        console.log(element);
         self.removeToken(element.tokenInfo.CharacterID);
       }
     });
@@ -102,6 +125,7 @@ export class AuthService {
     data.tokenInfo = tokenInfo;
     data.oAuthToken = oAuthToken;
     this.tokens.push(data);
+    console.log(this.tokens);
     this.saveTokens();
   }
 
@@ -129,26 +153,23 @@ export class AuthService {
 }
 
 export class TokenData {
-  tokenInfo: TokenInfo;
-  oAuthToken: OAuth2Token;
+  public tokenInfo: TokenInfo;
+  public oAuthToken: OAuth2Token;
 }
 
 export class OAuth2Token {
-  public accessToken = '';
-
-  public tokenType = '';
-
-  public expires = new Date();
-
-  public state = '';
+  public accessToken: string;
+  public tokenType: string;
+  public expires: Date;
+  public state: string;
 }
 
 export class TokenInfo {
-  CharacterID: number;
-  CharacterName: string;
-  CharacterOwnerHash: string;
-  ExpiresOn: string;
-  IntellectualProperty: string;
-  Scopes: string;
-  TokenType: string;
+  public CharacterID: number;
+  public CharacterName: string;
+  public CharacterOwnerHash: string;
+  public ExpiresOn: string;
+  public IntellectualProperty: string;
+  public Scopes: string;
+  public TokenType: string;
 }
