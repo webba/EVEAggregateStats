@@ -1,7 +1,21 @@
-<p>
-  character-navigation works!
-</p>
-<ul>
-  <li *ngFor="let token of tokens"><a routerLink="/stats/{{ token.tokenInfo.CharacterID }}">{{ token.tokenInfo.CharacterName }}</a></li>
-</ul>
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand">EVE Stats</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" *ngFor="let token of tokens">
+        <a class="nav-link user" routerLink="/stats/{{ token.tokenInfo.CharacterID }}">
+          <img src="https://imageserver.eveonline.com/Character/{{ token.tokenInfo.CharacterID }}_32.jpg"> {{ token.tokenInfo.CharacterName }}
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main role="main" class="container">
+  <router-outlet></router-outlet>
+</main>

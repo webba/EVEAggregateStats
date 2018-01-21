@@ -10,9 +10,10 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./year-end-stats.component.css']
 })
 export class YearEndStatsComponent implements OnInit {
-  public displayText: string;
   public token$: Observable<TokenData>;
+
   private id: number;
+  public stats: Object;
 
   constructor(
     private _authService: AuthService,
@@ -29,11 +30,8 @@ export class YearEndStatsComponent implements OnInit {
     this.token$.subscribe(token => {
       this._authService.getEndYearStats(token.tokenInfo.CharacterID, token.oAuthToken.accessToken)
       .subscribe((data) => {
-        this.displayText = JSON.stringify(data);
+        this.stats = data;
         console.log(data);
-      }, (error) => {
-        this.displayText = JSON.stringify(error);
-      }, () => {
       });
     });
   }

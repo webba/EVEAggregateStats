@@ -1,10 +1,12 @@
-<p>
-  year-end-stats works!
-  {{ displayText }}
-</p>
-<div *ngIf="token$ | async as token">
-  <h2>{{ token.tokenInfo.CharacterName | uppercase }} Details</h2>
-  <div>
-    <span>id: </span>{{ token.tokenInfo.CharacterID }}
-  </div>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" *ngFor="let stat of stats">
+    <a class="nav-link" id="{{ stat.year }}-tab" data-toggle="tab" href="#{{ stat.year }}" role="tab">{{ stat.year }}</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <ng-template ngFor let-stat [ngForOf]="stats">
+    <div class="tab-pane fade" id="{{ stat.year }}" role="tabpanel" >
+        <h2>{{ stat.year }} Stats</h2>
+     </div>
+  </ng-template>
 </div>
