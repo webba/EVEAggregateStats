@@ -1,67 +1,69 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  	<li class="nav-item" *ngFor="let stat of stats">
-		<a class="nav-link" id="{{ stat.year }}-tab" data-toggle="tab" href="#{{ stat.year }}" role="tab">{{ stat.year }}</a>
-  	</li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  	<ng-template ngFor let-stat [ngForOf]="stats">
-		<div class="tab-pane fade" id="{{ stat.year }}" role="tabpanel" >
-			<h2> Your stats in {{ stat.year }}</h2>
-			<div class="row">
-				<div class="col-md-3">
-						<h4 class="text-center">You killed</h4>
-						<div class="row">
-							
+<ng-template [ngIf]="hasCurrentToken()">
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item" *ngFor="let stat of getStats()">
+			<a class="nav-link" id="{{ stat.year }}-tab" data-toggle="tab" href="#{{ stat.year }}" role="tab">{{ stat.year }}</a>
+		</li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+		<ng-template ngFor let-stat [ngForOf]="getStats()">
+			<div class="tab-pane fade" id="{{ stat.year }}" role="tabpanel" >
+				<h2> Your stats in {{ stat.year }}</h2>
+				<div class="row">
+					<div class="col-md-3">
+							<h4 class="text-center">You killed</h4>
+							<div class="row">
 								
-							<div class="col-md-8">High sec</div>
-							<div class="col-mod-4" ><app-character-stat label="High Sec" [value]="stat.combat.kills_high_sec"></app-character-stat>}</div>
-							<div class="col-md-8">Low sec</div>
-							<div class="col-mod-4">{{stat.combat.kills_low_sec == null ? "0" :  stat.combat.kills_low_sec}}</div>
-							<div class="col-md-8">Null sec</div>
-							<div class="col-mod-4">{{stat.combat.kills_null_sec == null ? "0" :  stat.combat.kills_null_sec}}</div>
-							<div class="col-md-8">Wh</div>
-							<div class="col-mod-4">	<app-character-stat label="wh" [value]="stat.combat.kills_wormhole"></app-character-stat></div>
-						</div>
-						<h4>You podded</h4>
-						<div class="row">
-							<div class="col-md-8">High sec</div>
-							<div class="col-mod-4">1</div>
-							<div class="col-md-8">Low sec</div>
-							<div class="col-mod-4">1</div>
-							<div class="col-md-8">Null sec</div>
-							<div class="col-mod-4">1</div>
-							<div class="col-md-8">Wh</div>
-							<div class="col-mod-4">1</div>
-						</div>
-				</div>
-				<div class="col-md-4">
-					xx
-				</div>
-				<div class="col-md-4">
-						<h4>You lost</h4>
-						<div class="row">
-							<div class="col-md-8">High sec</div>
-							<div class="col-mod-4">1</div>
-							<div class="col-md-8">Low sec</div>
-							<div class="col-mod-4">1</div>
-							<div class="col-md-8">Null sec</div>
-							<div class="col-mod-4">1</div>
-							<div class="col-md-8">Wh</div>
-							<div class="col-mod-4">1</div>
-						</div>
-						<h4>You were podded</h4>
-						<div class="row">
-							<div class="col-md-8">High sec</div>
-							<div class="col-mod-4">1</div>
-							<div class="col-md-8">Low sec</div>
-							<div class="col-mod-4">1</div>
-							<div class="col-md-8">Null sec</div>
-							<div class="col-mod-4">1</div>
-							<div class="col-md-8">Wh</div>
-							<div class="col-mod-4">1</div>
-						</div>
+									
+								<div class="col-md-8">High sec</div>
+								<div class="col-mod-4" ><app-character-stat label="High Sec" [value]="stat.combat.kills_high_sec"></app-character-stat></div>
+								<div class="col-md-8">Low sec</div>
+								<div class="col-mod-4">{{stat.combat.kills_low_sec == null ? "0" :  stat.combat.kills_low_sec}}</div>
+								<div class="col-md-8">Null sec</div>
+								<div class="col-mod-4">{{stat.combat.kills_null_sec == null ? "0" :  stat.combat.kills_null_sec}}</div>
+								<div class="col-md-8">Wh</div>
+								<div class="col-mod-4">	<app-character-stat label="wh" [value]="stat.combat.kills_wormhole"></app-character-stat></div>
+							</div>
+							<h4>You podded</h4>
+							<div class="row">
+								<div class="col-md-8">High sec</div>
+								<div class="col-mod-4">1</div>
+								<div class="col-md-8">Low sec</div>
+								<div class="col-mod-4">1</div>
+								<div class="col-md-8">Null sec</div>
+								<div class="col-mod-4">1</div>
+								<div class="col-md-8">Wh</div>
+								<div class="col-mod-4">1</div>
+							</div>
+					</div>
+					<div class="col-md-4">
+						xx
+					</div>
+					<div class="col-md-4">
+							<h4>You lost</h4>
+							<div class="row">
+								<div class="col-md-8">High sec</div>
+								<div class="col-mod-4">1</div>
+								<div class="col-md-8">Low sec</div>
+								<div class="col-mod-4">1</div>
+								<div class="col-md-8">Null sec</div>
+								<div class="col-mod-4">1</div>
+								<div class="col-md-8">Wh</div>
+								<div class="col-mod-4">1</div>
+							</div>
+							<h4>You were podded</h4>
+							<div class="row">
+								<div class="col-md-8">High sec</div>
+								<div class="col-mod-4">1</div>
+								<div class="col-md-8">Low sec</div>
+								<div class="col-mod-4">1</div>
+								<div class="col-md-8">Null sec</div>
+								<div class="col-mod-4">1</div>
+								<div class="col-md-8">Wh</div>
+								<div class="col-mod-4">1</div>
+							</div>
+					</div>
 				</div>
 			</div>
-	 	</div>
-  	</ng-template>
-</div>
+		</ng-template>
+	</div>
+</ng-template>

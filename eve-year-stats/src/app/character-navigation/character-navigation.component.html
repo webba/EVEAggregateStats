@@ -7,17 +7,20 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <ng-template ngFor let-token [ngForOf]="tokens">
-        <li class="nav-item">
-          <a class="nav-link user" routerLink="/stats/{{ token.tokenInfo.CharacterID }}">
+        <li *ngFor="let token of getTokens()" class="nav-item">
+          <a *ngIf="getCurrentToken() != null && token.tokenInfo.CharacterID == getCurrentToken().tokenInfo.CharacterID" 
+            class="nav-link user active" (click)="setCurrentToken(token.tokenInfo.CharacterID)">
             <img src="https://imageserver.eveonline.com/Character/{{ token.tokenInfo.CharacterID }}_32.jpg"> {{ token.tokenInfo.CharacterName }}
             <span class="sr-only">(current)</span>
           </a>
+          <a *ngIf="getCurrentToken() == null || token.tokenInfo.CharacterID != getCurrentToken().tokenInfo.CharacterID" class="nav-link user"
+            (click)="setCurrentToken(token.tokenInfo.CharacterID)">
+            <img src="https://imageserver.eveonline.com/Character/{{ token.tokenInfo.CharacterID }}_32.jpg"> {{ token.tokenInfo.CharacterName }}
+          </a>
         </li>
-      </ng-template>
     </ul>
   </div>
 </nav>
 <main role="main" class="container">
-  <router-outlet></router-outlet>
+  <app-year-end-stats></app-year-end-stats>
 </main>

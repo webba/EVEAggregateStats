@@ -17,12 +17,8 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'stats',
-    component: CharacterNavigationComponent, children: [
-      {
-        path: ':id',
-        component: YearEndStatsComponent
-      }
-  ]  },
+    component: CharacterNavigationComponent
+  },
   { path: '', redirectTo: 'stats', pathMatch: 'full' }
 ];
 

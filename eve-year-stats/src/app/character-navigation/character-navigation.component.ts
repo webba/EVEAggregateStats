@@ -11,7 +11,6 @@ import { Observable } from 'rxjs/Observable';
 export class CharacterNavigationComponent implements OnInit {
   token$: Observable<TokenData>[];
   currentToken$: Observable<TokenData>;
-  tokens: TokenData[] = [];
 
 
   constructor(
@@ -23,17 +22,26 @@ export class CharacterNavigationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTokens();
-    if (this._route.children.length === 0 && this.tokens.length > 0) {
-      this._router.navigate(['/stats', this._authService.getTokens()[0].tokenInfo.CharacterID]);
-    }
-    this.currentToken$ = this._route.paramMap.switchMap((params: ParamMap) => {
-      return this._authService.getCurrentToken();
-    });
+    // this.getTokens();
+    // if (this._route.children.length === 0 && this.tokens.length > 0) {
+    //   this._router.navigate(['/stats', this._authService.getTokens()[0].tokenInfo.CharacterID]);
+    // }
+    // this.currentToken$ = this._route.paramMap.switchMap((params: ParamMap) => {
+    //   return this._authService.getCurrentToken();
+    // });
   }
 
   private getTokens() {
-    this.tokens = this._authService.getTokens();
+    return this._authService.getTokens();
+  }
+
+  public getCurrentToken(): TokenData {
+    return this._authService.getCurrentToken();
+  }
+
+  public setCurrentToken(CharacterID: number): void {
+    this._authService.setCurrentToken(CharacterID);
+    console.log(this.getCurrentToken());
   }
 
 }
