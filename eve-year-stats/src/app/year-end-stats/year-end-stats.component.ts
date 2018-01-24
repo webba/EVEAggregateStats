@@ -3,12 +3,14 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AuthService, TokenData } from '../auth/auth.service';
 import 'rxjs/add/operator/switchMap';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-year-end-stats',
   templateUrl: './year-end-stats.component.html',
   styleUrls: ['./year-end-stats.component.css']
 })
+
 export class YearEndStatsComponent implements OnInit {
   public token$: Observable<TokenData>;
   public currentToken;
