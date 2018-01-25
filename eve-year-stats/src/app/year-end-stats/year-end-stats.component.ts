@@ -26,26 +26,13 @@ export class YearEndStatsComponent implements OnInit {
 
   ngOnInit() {
     this.currentToken = this._authService.getCurrentToken();
-    // this.token$ = this._route.paramMap.switchMap((params: ParamMap) => {
-    //   return this._authService.getToken(parseFloat(params.get('id')));
-    // });
-
-    // this.token$.subscribe(token => {
-    //   this._authService.getEndYearStats(token.tokenInfo.CharacterID, token.oAuthToken.accessToken)
-    //   .subscribe((data) => {
-    //     this.stats = data;
-    //     console.log(data);
-    //   });
-    // });
   }
 
   public getCurrentToken(): TokenData {
-    console.log(this._authService.getCurrentToken());
     return this._authService.getCurrentToken();
   }
 
   public hasCurrentToken(): Boolean {
-    console.log(this._authService.getCurrentToken());
     return this._authService.getCurrentToken() != null;
   }
 
