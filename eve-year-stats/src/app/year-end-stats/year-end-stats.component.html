@@ -59,6 +59,22 @@
 					</div>
 				</div>
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h2 clas="text-center" id="modules">Modules</h2></div>
+				<div class="row justify-content-md-center">You were...</div>
+				<div class="row justify-content-md-center">
+						<div class="col-md-3 text-center">Tackled<br><app-character-stat [value]="stat.combat.warp_scrambledby_pc"></app-character-stat></div>
+						<div class="col-md-3 text-center">webbed<br><app-character-stat [value]="stat.combat.webifiedby_pc"></app-character-stat></div>
+						<div class="col-md-3 text-center">nueted<br><app-character-stat [value]="stat.combat.cap_drainedby_pc"></app-character-stat></div>
+						<div class="col-md-3 text-center">Selfdestruc<br><app-character-stat [value]="stat.combat.warp_scramble_pc"></app-character-stat></div>
+				</div>
+				<div class="row justify-content-md-center">You Did</div>
+				<div class="row justify-content-md-center">
+					<div class="col-md-3 text-center">Tackled<br><app-character-stat [value]="stat.combat.warp_scramble_pc"></app-character-stat></div>
+					<div class="col-md-3 text-center">webbed<br><app-character-stat [value]="stat.combat.warp_scramble_pc"></app-character-stat></div>
+					<div class="col-md-3 text-center">nueted<br><app-character-stat [value]="stat.combat.warp_scramble_pc"></app-character-stat></div>
+					<div class="col-md-3 text-center">overloads<br><app-character-stat [value]="stat.module.overload"></app-character-stat></div>
+				</div>
+					
+
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h2 clas="text-center" id="logi" >Logi</h2></div>
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h2 clas="text-center" id="pvp-aggresion">PVP aggresion</h2></div>
 
