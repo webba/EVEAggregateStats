@@ -14,6 +14,7 @@ import { YearEndStatsComponent } from './year-end-stats/year-end-stats.component
 import { CharacterNavigationComponent } from './character-navigation/character-navigation.component';
 import { CharacterStatComponent } from './character-stat/character-stat.component';
 import { CombatChartComponent } from './combat-chart/combat-chart.component';
+import { CombatDamageComponentComponent } from './combat-damage-component/combat-damage-component.component';
 
 const appRoutes: Routes = [
   { path: 'oauth-callback', component: OAuthCallbackComponent },
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     YearEndStatsComponent,
     CharacterNavigationComponent,
     CharacterStatComponent,
-    CombatChartComponent
+    CombatChartComponent,
+    CombatDamageComponentComponent
   ],
   imports: [
     BrowserModule,

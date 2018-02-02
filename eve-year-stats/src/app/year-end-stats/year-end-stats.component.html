@@ -57,8 +57,96 @@
 					<div class="col-md-12">
 						<h4 class="text-center">You assisted on: <app-character-stat [value]="stat.combat.kills_assists"></app-character-stat> kills</h4>
 					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-8">
+								You Drained</div>
+							<div class="col-md-4 text-md-right">
+								<app-character-stat [value]="stat.combat.cap_draining_pc"></app-character-stat> GJ
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="col-md-8">
+								You Were Drained For</div>
+							<div class="col-md-4 text-md-right">
+								<app-character-stat [value]="stat.combat.cap_drainedby_pc"></app-character-stat> GJ
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h2 clas="text-center" id="modules">Modules</h2></div>
+				<div class="row border-bottom pb-3 mb-4">
+					<div class="col-md-12">
+						<h2 class="text-center" id="modules">Modules</h2>
+					</div>
+					<div class="col-md-12">
+						<app-combat-damage-component title="Energy Turret Damage" 
+							[toAmount]="stat.combat.damage_to_players_energy_amount" 
+							[toShots]="stat.combat.damage_to_players_energy_num_shots"
+							[fromAmount]="stat.combat.damage_from_players_energy_amount" 
+							[fromShots]="stat.combat.damage_from_players_energy_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Hybrid Turret Damage" 
+							[toAmount]="stat.combat.damage_to_players_hybrid_amount" 
+							[toShots]="stat.combat.damage_to_players_hybrid_num_shots"
+							[fromAmount]="stat.combat.damage_from_players_hybrid_amount" 
+							[fromShots]="stat.combat.damage_from_players_hybrid_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Missile Damage" 
+							[toAmount]="stat.combat.damage_to_players_missile_amount" 
+							[toShots]="stat.combat.damage_to_players_missile_num_shots"
+							[fromAmount]="stat.combat.damage_from_players_missile_amount" 
+							[fromShots]="stat.combat.damage_from_players_missile_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Projectile Turret Damage" 
+							[toAmount]="stat.combat.damage_to_players_projectile_amount" 
+							[toShots]="stat.combat.damage_to_players_projectile_num_shots"
+							[fromAmount]="stat.combat.damage_from_players_projectile_amount" 
+							[fromShots]="stat.combat.damage_from_players_projectile_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Drone Damage" 
+							[toAmount]="stat.combat.damage_to_players_combat_drone_amount" 
+							[toShots]="stat.combat.damage_to_players_combat_drone_num_shots"
+							[fromAmount]="stat.combat.damage_from_players_combat_drone_amount" 
+							[fromShots]="stat.combat.damage_from_players_combat_drone_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Fighter Damage" 
+							[toAmount]="stat.combat.damage_to_players_fighter_drone_amount"
+							[toShots]="stat.combat.damage_to_players_fighter_drone_num_shots" 
+							[fromAmount]="stat.combat.damage_from_players_fighter_drone_amount"
+							[fromShots]="stat.combat.damage_from_players_fighter_drone_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Fighter Bomber Damage" 
+							[toAmount]="stat.combat.damage_to_players_fighter_bomber_amount" 
+							[toShots]="stat.combat.damage_to_players_fighter_bomber_num_shots"
+							[fromAmount]="stat.combat.damage_from_players_fighter_bomber_amount" 
+							[fromShots]="stat.combat.damage_from_players_fighter_bomber_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Bomb Damage" 
+							[toAmount]="stat.combat.damage_to_players_bomb_amount" 
+							[toShots]="stat.combat.damage_to_players_bomb_num_shots"
+							[fromAmount]="stat.combat.damage_from_players_bomb_amount" 
+							[fromShots]="stat.combat.damage_from_players_bomb_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Smart Bomb Damage" 
+							[toAmount]="stat.combat.damage_to_players_smart_bomb_amount" 
+							[toShots]="stat.combat.damage_to_players_smart_bomb_num_shots"
+							[fromAmount]="stat.combat.damage_from_players_smart_bomb_amount" 
+							[fromShots]="stat.combat.damage_from_players_smart_bomb_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Super Weapon Damage" 
+							[toAmount]="stat.combat.damage_to_players_super_amount" 
+							[toShots]="stat.combat.damage_to_players_super_num_shots"
+							[fromAmount]="stat.combat.damage_from_players_super_amount" 
+							[fromShots]="stat.combat.damage_from_players_super_num_shots">
+						</app-combat-damage-component>
+						<app-combat-damage-component title="Structure Damage" 
+							[toAmount]="stat.combat.damage_to_structures_amount" 
+							[toShots]="stat.combat.damage_to_structures_num_shots"
+							[fromAmount]="stat.combat.damage_from_structures_amount" 
+							[fromShots]="stat.combat.damage_from_structures_num_shots">
+						</app-combat-damage-component>
+					</div>
+				</div>
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h2 clas="text-center" id="logi" >Logi</h2></div>
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h2 clas="text-center" id="pvp-aggresion">PVP aggresion</h2></div>
 
