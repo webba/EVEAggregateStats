@@ -35,6 +35,7 @@ export class DamageChartComponent implements OnInit {
         type: 'horizontalBar',
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           scales: {
             xAxes: [{
                 stacked: true,

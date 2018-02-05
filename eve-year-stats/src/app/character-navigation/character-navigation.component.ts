@@ -20,7 +20,7 @@ export class CharacterNavigationComponent implements OnInit {
   ngOnInit() {
   }
 
-  private getCharacters(): CharacterData[] {
+  public getCharacters(): CharacterData[] {
     return this._authService.getCharacters();
   }
 
