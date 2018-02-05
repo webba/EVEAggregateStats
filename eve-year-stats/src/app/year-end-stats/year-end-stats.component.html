@@ -214,7 +214,7 @@
 	 	</ngb-tab>
 	  </ng-template>
 	  
-	  	<ng-template ngFor let-stat [ngForOf]="getStats()">
+	  	<ng-template ngFor let-stat [ngForOf]="getSelectedCharacter().Stats">
 			<ngb-tab title="{{ stat.year }} Full">
 				<ng-template ngbTabContent>
 					<!-- start -->
