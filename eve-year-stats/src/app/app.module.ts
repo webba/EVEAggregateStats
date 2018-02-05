@@ -8,7 +8,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth/auth.service';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { OAuthCallbackComponent } from './oauth-callback/oauth-callback.component';
 import { YearEndStatsComponent } from './year-end-stats/year-end-stats.component';
 import { CharacterNavigationComponent } from './character-navigation/character-navigation.component';
@@ -19,7 +18,6 @@ import { DamageChartComponent } from './damage-chart/damage-chart.component';
 
 const appRoutes: Routes = [
   { path: 'oauth-callback', component: OAuthCallbackComponent },
-  { path: 'login', component: LoginComponent },
   {
     path: 'stats',
     component: CharacterNavigationComponent
@@ -30,7 +28,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     OAuthCallbackComponent,
     YearEndStatsComponent,
     CharacterNavigationComponent,

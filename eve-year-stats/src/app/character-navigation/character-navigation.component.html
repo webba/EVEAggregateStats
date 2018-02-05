@@ -7,17 +7,24 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-        <li *ngFor="let character of getCharacters()" class="nav-item">
+        <li *ngFor="let character of getCharacters()" class="nav-item link">
           <a *ngIf="character.Selected === true" 
-            class="nav-link user active" (click)="setCurrentToken(character.CharacterID)">
+            class="nav-link user active" (click)="setSelectedCharacter(character.CharacterID)">
             <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
             <span class="sr-only">(current)</span>
           </a>
-          <a *ngIf="character.Selected === false" class="nav-link user"
-            (click)="setCurrentToken(character.CharacterID)">
+          <a *ngIf="character.Selected === false" class="nav-link user link"
+            (click)="setSelectedCharacter(character.CharacterID)">
             <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
           </a>
         </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item link">
+        <a class="nav-link active login-link" (click)="login()">
+          Add Character
+        </a>
+      </li>
     </ul>
   </div>
 </nav>

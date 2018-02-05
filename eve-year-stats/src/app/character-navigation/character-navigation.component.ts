@@ -32,4 +32,7 @@ export class CharacterNavigationComponent implements OnInit {
     this._authService.setSelectedCharacter(CharacterID);
   }
 
+  public login() {
+    location.href = this._authService.getLoginUrl();
+  }
 }
