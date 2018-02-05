@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { AuthServiceConfig } from './auth.service.config';
 import { Observable } from 'rxjs/Observable';
 import {  } from 'rxjs/operators/';
+import { Agent } from 'https';
+import { isNumber } from 'util';
 
 @Injectable()
 export class AuthService {
@@ -190,6 +192,47 @@ export class AuthService {
       }
     }
   }
+
+  public getAggregateStats(): Object[] {
+    const aggregateStats = [];
+    for (let i = 0; i < this.characters.length; i++) {
+      const character = this.characters[i];
+      for (let j = 0; j < this.characters[i].Stats.length; j++) {
+        let found = false;
+        const stat = character.Stats[j];
+        for (let y = 0; y < aggregateStats.length; y++) {
+          const aggregate = aggregateStats[y];
+          if (aggregate.year === stat['year']) {
+            found = true;
+            const year = aggregate.year;
+            aggregateStats[y] = this.addObjects(aggregate, stat);
+            aggregateStats[y].year = year;
+          }
+        }
+        if (!found) {
+          aggregateStats.push(stat);
+        }
+      }
+    }
+    return aggregateStats;
+  }
+
+  private addObjects(base: Object, add: Object): Object {
+    for (const property in add) {
+      if (add.hasOwnProperty(property)) {
+        if (base.hasOwnProperty(property)) {
+          if (isNumber(add[property]) && isNumber(base[property])) {
+            base[property] = base[property] + add[property];
+          } else {
+            base[property] = this.addObjects(base[property], add[property]);
+          }
+        } else {
+          base[property] = add[property];
+        }
+      }
+    }
+    return base;
+  }
 }
 
 export enum CharacterDataType {
@@ -202,7 +245,7 @@ export class CharacterData {
   public Type: CharacterDataType;
   public CharacterName: string;
   public CharacterID: number;
-  public Stats: object;
+  public Stats: Object[];
   public Token: OAuth2Token;
   public Selected: boolean;
 }

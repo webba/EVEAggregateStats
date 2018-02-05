@@ -9,6 +9,8 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./character-navigation.component.css']
 })
 export class CharacterNavigationComponent implements OnInit {
+  private aggregate = false;
+
   constructor(
     private _authService: AuthService,
     private _route: ActivatedRoute,
@@ -34,5 +36,9 @@ export class CharacterNavigationComponent implements OnInit {
 
   public login() {
     location.href = this._authService.getLoginUrl();
+  }
+
+  public setAggregateStats() {
+    console.log(this._authService.getAggregateStats());
   }
 }

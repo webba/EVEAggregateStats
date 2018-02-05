@@ -7,17 +7,22 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-        <li *ngFor="let character of getCharacters()" class="nav-item link">
-          <a *ngIf="character.Selected === true" 
-            class="nav-link user active" (click)="setSelectedCharacter(character.CharacterID)">
-            <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
-            <span class="sr-only">(current)</span>
-          </a>
-          <a *ngIf="character.Selected === false" class="nav-link user link"
-            (click)="setSelectedCharacter(character.CharacterID)">
-            <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
-          </a>
-        </li>
+      <li *ngFor="let character of getCharacters()" class="nav-item link">
+        <a *ngIf="character.Selected === true" 
+          class="nav-link user active" (click)="setSelectedCharacter(character.CharacterID)">
+          <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
+          <span class="sr-only">(current)</span>
+        </a>
+        <a *ngIf="character.Selected === false" class="nav-link user link"
+          (click)="setSelectedCharacter(character.CharacterID)">
+          <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
+        </a>
+      </li>
+      <li *ngIf="getCharacters().length > 0" class="nav-item user link">
+        <a class="nav-link user active" (click)="setAggregateStats()">
+          <img src="https://imageserver.eveonline.com/Alliance/1_32.png"> All
+        </a>
+      </li>
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item link">
