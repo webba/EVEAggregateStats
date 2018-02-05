@@ -88,8 +88,12 @@
 					<div class="col-md-12">
 						<h2 class="text-center" id="modules">Modules</h2>
 					</div>
-					<div class="col-md-12">
+					<div class="col-md-6">
+
 						<app-damage-chart [label]="'damage-chart-' + stat.year" [data]="stat.combat"></app-damage-chart>
+					</div>
+					<div class="col-md-6">
+						<app-damage2-chart [label]="'damage2-chart-' + stat.year" [data]="stat.combat"></app-damage2-chart>
 					</div>
 					<div class="col-md-12">
 						<app-combat-damage-component title="Energy Turret Damage" 
