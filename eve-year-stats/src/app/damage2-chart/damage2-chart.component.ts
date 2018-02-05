@@ -3,11 +3,11 @@ import { Chart } from 'chart.js';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
-  selector: 'app-damage-chart',
-  templateUrl: './damage-chart.component.html',
-  styleUrls: ['./damage-chart.component.css']
+  selector: 'app-damage2-chart',
+  templateUrl: './damage2-chart.component.html',
+  styleUrls: ['./damage2-chart.component.css']
 })
-export class DamageChartComponent implements OnInit {
+export class Damage2ChartComponent implements OnInit {
   @Input() label: string;
   @Input() data: Object;
 
@@ -35,6 +35,7 @@ export class DamageChartComponent implements OnInit {
         type: 'horizontalBar',
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           scales: {
             xAxes: [{
                 stacked: true,
@@ -45,21 +46,21 @@ export class DamageChartComponent implements OnInit {
         }
         },
         data: {
-          labels: ['Energy', 'Hybrid', 'Missile', 'Projectile', 'Drone', 'Fighter', 'Fighter Bomber', 'Bomb', 'Smart Bomb', 'Super Weapon'],
+          labels: ['Energyt', 'Hybrid', 'Missile', 'Projectile', 'Drone', 'Fighter', 'Fighter Bomber', 'Bomb', 'Smart Bomb', 'Super Weapon'],
           datasets: [{
-            label: 'Damage dealt',
+            label: 'Damage dealttttt',
             backgroundColor: 'rgba(255, 0, 0, 1)',
             data: [
-              this.getDataPoint('damage_to_players_energy_amount'),
-              this.getDataPoint('damage_to_players_hybrid_amount'),
-              this.getDataPoint('damage_to_players_missile_amount'),
-              this.getDataPoint('damage_to_players_projectile_amount'),
-              this.getDataPoint('damage_to_players_combat_drone_amount'),
-              this.getDataPoint('damage_to_players_fighter_drone_amount'),
-              this.getDataPoint('damage_to_players_fighter_bomber_amount'),
-              this.getDataPoint('damage_to_players_bomb_amount'),
-              this.getDataPoint('damage_to_players_smart_bomb_amount'),
-              this.getDataPoint('damage_to_players_super_amount')
+              this.getDataPoint('damage_from_players_energy_amount'),
+              this.getDataPoint('damage_from_players_hybrid_amount'),
+              this.getDataPoint('damage_from_players_missile_amount'),
+              this.getDataPoint('damage_from_players_projectile_amount'),
+              this.getDataPoint('damage_from_players_combat_drone_amount'),
+              this.getDataPoint('damage_from_players_fighter_drone_amount'),
+              this.getDataPoint('damage_from_players_fighter_bomber_amount'),
+              this.getDataPoint('damage_from_players_bomb_amount'),
+              this.getDataPoint('damage_from_players_smart_bomb_amount'),
+              this.getDataPoint('damage_from_players_super_amount')
             ]
           },{
             label: 'Damage',
@@ -84,16 +85,16 @@ export class DamageChartComponent implements OnInit {
       console.log(this.data);
       this.lastData = this.data;
       this.chart.datasets[0].data = [
-        this.getDataPoint('damage_to_players_energy_amount'),
-        this.getDataPoint('damage_to_players_hybrid_amount'),
-        this.getDataPoint('damage_to_players_missile_amount'),
-        this.getDataPoint('damage_to_players_projectile_amount'),
-        this.getDataPoint('damage_to_players_combat_drone_amount'),
-        this.getDataPoint('damage_to_players_fighter_drone_amount'),
-        this.getDataPoint('damage_to_players_fighter_bomber_amount'),
-        this.getDataPoint('damage_to_players_bomb_amount'),
-        this.getDataPoint('damage_to_players_smart_bomb_amount'),
-        this.getDataPoint('damage_to_players_super_amount')
+        this.getDataPoint('damage_from_players_energy_amount'),
+        this.getDataPoint('damage_from_players_hybrid_amount'),
+        this.getDataPoint('damage_from_players_missile_amount'),
+        this.getDataPoint('damage_from_players_projectile_amount'),
+        this.getDataPoint('damage_from_players_combat_drone_amount'),
+        this.getDataPoint('damage_from_players_fighter_drone_amount'),
+        this.getDataPoint('damage_from_players_fighter_bomber_amount'),
+        this.getDataPoint('damage_from_players_bomb_amount'),
+        this.getDataPoint('damage_from_players_smart_bomb_amount'),
+        this.getDataPoint('damage_from_players_super_amount')
       ];
       this.chart.update();
     }
