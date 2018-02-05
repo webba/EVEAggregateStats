@@ -12,10 +12,10 @@ import { OAuthCallbackComponent } from './oauth-callback/oauth-callback.componen
 import { YearEndStatsComponent } from './year-end-stats/year-end-stats.component';
 import { CharacterNavigationComponent } from './character-navigation/character-navigation.component';
 import { CharacterStatComponent } from './character-stat/character-stat.component';
-import { CombatChartComponent } from './combat-chart/combat-chart.component';
+import { CombatChartComponent } from './charts/combat-chart/combat-chart.component';
 import { CombatDamageComponentComponent } from './combat-damage-component/combat-damage-component.component';
-import { DamageChartComponent } from './damage-chart/damage-chart.component';
-import { Damage2ChartComponent } from './damage2-chart/damage2-chart.component';
+import { DamageChartComponent } from './charts/damage-chart/damage-chart.component';
+import { Damage2ChartComponent } from './charts/damage2-chart/damage2-chart.component';
 const appRoutes: Routes = [
   { path: 'oauth-callback', component: OAuthCallbackComponent },
   {
