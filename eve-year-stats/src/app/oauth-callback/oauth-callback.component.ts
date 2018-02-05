@@ -11,20 +11,12 @@ import { Router } from '@angular/router';
 export class OAuthCallbackComponent implements OnInit {
 
   constructor(private _authService: AuthService, private _router: Router) {
-    const token = this._authService.getTokenFromUrl();
-    if (token !== null) {
-      const userInfo = this._authService.getUserInfo(token).subscribe((response) => {
-        if (response.ok) {
-          this._authService.addToken(response.body, token);
-        }
-        this._router.navigate(['/']);
-      });
-    } else {
-      this._router.navigate(['/']);
-    }
    }
 
   ngOnInit() {
+    this._authService.handleOAuthCallback().subscribe(newToken => {
+        this._router.navigate(['/']);
+    });
   }
 
 }

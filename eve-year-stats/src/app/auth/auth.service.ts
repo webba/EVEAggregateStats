@@ -6,17 +6,12 @@ import {  } from 'rxjs/operators/';
 
 @Injectable()
 export class AuthService {
-  private tokens: TokenData[];
-  private currentToken: TokenData;
-  private currentStats: Object;
-
-  private oTokens: Observable<TokenData[]>;
-  private oCurrentToken: Observable<TokenData>;
+  private characters: CharacterData[];
 
   constructor(private _http: HttpClient,
     @Optional() private _authServiceConfig: AuthServiceConfig
   ) {
-    this.loadTokens();
+    this.loadCharacters();
    }
 
   public configure(__authServiceConfig: AuthServiceConfig) {
@@ -34,7 +29,7 @@ export class AuthService {
       + '&state=' + encodeURIComponent(state);
   }
 
-  public getTokenFromUrl(): OAuth2Token {
+  private getTokenFromUrl(): OAuth2Token {
     let params;
     if (location.search.indexOf('access_token') > 0) {
       params = location.search.split('&');
@@ -66,7 +61,7 @@ export class AuthService {
     return token;
   }
 
-  public getUserInfo(token: OAuth2Token): Observable<HttpResponse<TokenInfo>> {
+  private getUserInfo(token: OAuth2Token): Observable<HttpResponse<TokenInfo>> {
     return this._http.get<TokenInfo>(this._authServiceConfig.userinfoEndpoint + '?token=' + token.accessToken, {
       observe: 'response',
       headers: new HttpHeaders()
@@ -75,133 +70,141 @@ export class AuthService {
     });
   }
 
-  public getEndYearStats(): Observable<Array<Object>> {
+  private getEndYearStats(character: CharacterData): Observable<Array<Object>> {
+    if (character.Type !== CharacterDataType.Active) {
+      return null;
+    }
     return this._http.get<Array<Object>>('https://esi.tech.ccp.is/latest/characters/' +
-      this.currentToken.tokenInfo.CharacterID.toString() + '/stats/', {
+      character.CharacterID.toString() + '/stats/', {
       headers: new HttpHeaders()
-        .set('Authorization', 'Bearer ' + this.currentToken.oAuthToken.accessToken)
+        .set('Authorization', 'Bearer ' + character.Token.accessToken)
         .set('Content-Type', 'text/json')
     });
   }
 
-  public updateEndYearStats(): void {
-    this.getEndYearStats().subscribe(data => {
-      this.currentStats = data;
+  public handleOAuthCallback(): Observable<Boolean> {
+    return Observable.create(observer => {
+      const token = this.getTokenFromUrl();
+      if (token !== null) {
+        this.getUserInfo(token).subscribe(userInfo => {
+          if (userInfo.ok) {
+            const character = new CharacterData();
+            character.Token = token;
+            character.Type = CharacterDataType.Active;
+            character.CharacterID = userInfo.body.CharacterID;
+            character.CharacterName = userInfo.body.CharacterName;
+            this.getEndYearStats(character).subscribe(statsData => {
+              character.Stats = statsData;
+              this.removeCharacter(character.CharacterID);
+              this.characters.push(character);
+              this.setSelectedCharacter(character.CharacterID);
+              this.saveCharacters();
+              observer.next(true);
+              observer.complete();
+            });
+          } else {
+            observer.next(false);
+            observer.complete();
+          }
+        });
+      } else {
+        observer.next(false);
+        observer.complete();
+      }
     });
   }
 
-  private loadTokens(): void {
-    const data =  JSON.parse(localStorage.getItem('tokens')) || [];
+  public getCharacters(): CharacterData[] {
+    let save = false;
+    for (let index = 0; index < this.characters.length; index++) {
+      if (this.characters[index].Type === CharacterDataType.Active
+        && (new Date()).getTime() >= this.characters[index].Token.expires.getTime()) {
+        this.characters[index].Type = CharacterDataType.Cached;
+        this.characters[index].Token = null;
+        save = true;
+      }
+    }
+    if (save) {
+      this.saveCharacters();
+    }
+    return this.characters;
+  }
 
-    this.currentToken = null;
-    this.tokens = [];
+  public setSelectedCharacter(CharacterID: number): void {
+    for (let index = 0; index < this.characters.length; index++) {
+      if (this.characters[index].CharacterID === CharacterID) {
+        this.characters[index].Selected = true;
+      } else {
+        this.characters[index].Selected = false;
+      }
+    }
+    this.saveCharacters();
+  }
+
+  public removeCharacter(CharacterID: number): void {
+    let save = false;
+    for (let index = 0; index < this.characters.length; index++) {
+      if (this.characters[index].CharacterID === CharacterID) {
+        this.characters.splice(index);
+        save = true;
+      }
+    }
+    if (save) {
+      this.saveCharacters();
+    }
+  }
+
+  private loadCharacters(): void {
+    const data = JSON.parse(localStorage.getItem('characters')) || [];
+    this.characters = [];
 
     // Parse Dates
     data.forEach((value, index, array) => {
-      const parsedToken = new TokenData();
-
-      parsedToken.oAuthToken = new OAuth2Token();
-      parsedToken.oAuthToken.accessToken = value.oAuthToken.accessToken;
-      parsedToken.oAuthToken.expires = new Date(value.oAuthToken.expires);
-      parsedToken.oAuthToken.state = value.oAuthToken.state;
-      parsedToken.oAuthToken.tokenType = value.oAuthToken.tokenType;
-
-      parsedToken.tokenInfo = new TokenInfo();
-      parsedToken.tokenInfo.CharacterID = value.tokenInfo.CharacterID;
-      parsedToken.tokenInfo.CharacterName = value.tokenInfo.CharacterName;
-      parsedToken.tokenInfo.CharacterOwnerHash = value.tokenInfo.CharacterOwnerHash;
-      parsedToken.tokenInfo.ExpiresOn = value.tokenInfo.ExpiresOn;
-      parsedToken.tokenInfo.IntellectualProperty = value.tokenInfo.IntellectualProperty;
-      parsedToken.tokenInfo.Scopes = value.tokenInfo.Scopes;
-      parsedToken.tokenInfo.TokenType = value.tokenInfo.TokenType;
-
-      this.tokens.push(parsedToken);
-    });
-
-    if (this.tokens.length !== 0) {
-      this.setCurrentToken(this.tokens[0].tokenInfo.CharacterID);
-    }
-  }
-
-  private saveTokens(): void {
-    localStorage.setItem('tokens', JSON.stringify(this.tokens));
-  }
-
-  public getTokens(): TokenData[] {
-    for (let index = 0; index < this.tokens.length; index++) {
-      const element = this.tokens[index];
-      if ((new Date()).getTime() >= element.oAuthToken.expires.getTime()) {
-        this.removeToken(element.tokenInfo.CharacterID);
-      }
-    }
-    return this.tokens;
-  }
-
-  public addToken(tokenInfo: TokenInfo, oAuthToken: OAuth2Token): void {
-    this.removeToken(tokenInfo.CharacterID);
-    const data = new TokenData();
-    data.tokenInfo = tokenInfo;
-    data.oAuthToken = oAuthToken;
-    this.tokens.push(data);
-    this.setCurrentToken(data.tokenInfo.CharacterID);
-    this.saveTokens();
-  }
-
-  public removeToken(CharacterID: number): void {
-    for (let index = 0; index < this.tokens.length; index++) {
-      const element = this.tokens[index];
-      if (element.tokenInfo.CharacterID === CharacterID) {
-        this.tokens.splice(index);
-        this.saveTokens();
-      }
-    }
-    if (this.currentToken != null && this.currentToken.tokenInfo.CharacterID === CharacterID) {
-      if (this.tokens.length === 0) {
-        this.currentToken = null;
+      const parsedCharacter = new CharacterData();
+      parsedCharacter.CharacterID = value.CharacterID;
+      parsedCharacter.CharacterName = value.CharacterName;
+      parsedCharacter.Stats = value.Stats;
+      parsedCharacter.Type = value.Type;
+      parsedCharacter.Selected = value.Selected;
+      if (parsedCharacter.Type === CharacterDataType.Active) {
+        parsedCharacter.Token = new OAuth2Token();
+        parsedCharacter.Token.accessToken = value.Token.accessToken;
+        parsedCharacter.Token.expires = new Date(value.Token.expires);
+        parsedCharacter.Token.state = value.Token.state;
+        parsedCharacter.Token.tokenType = value.Token.tokenType;
       } else {
-        this.setCurrentToken(this.tokens[0].tokenInfo.CharacterID);
+        parsedCharacter.Token = null;
       }
-    }
-  }
-
-  public getToken(CharacterID: number): Observable<TokenData> {
-    const self = this;
-    return Observable.create(function (observer) {
-      self.getTokens().forEach(value => {
-        if (value.tokenInfo.CharacterID === CharacterID) {
-          observer.next(value);
-        }
-      });
+      this.characters.push(parsedCharacter);
     });
   }
 
-  public getTokenById(CharacterID: number): TokenData {
-    for (let index = 0; index < this.tokens.length; index++) {
-      const element = this.tokens[index];
-      if (element.tokenInfo.CharacterID === CharacterID) {
-        return element;
+  private saveCharacters(): void {
+    localStorage.setItem('characters', JSON.stringify(this.characters));
+  }
+
+  public getSelectedCharacter(): CharacterData {
+    for (let i = 0; i < this.characters.length; i++) {
+      if (this.characters[i].Selected) {
+        return this.characters[i];
       }
     }
-    return null;
-  }
-
-  public getCurrentToken(): TokenData {
-    return this.currentToken;
-  }
-
-  public setCurrentToken(CharacterID: number): void {
-    this.currentToken = this.getTokenById(CharacterID);
-    this.updateEndYearStats();
-  }
-
-  public getCurrentStats(): Object {
-    return this.currentStats;
   }
 }
 
-export class TokenData {
-  public tokenInfo: TokenInfo;
-  public oAuthToken: OAuth2Token;
+export enum CharacterDataType {
+  Active,
+  Cached,
+  Shared
+}
+
+export class CharacterData {
+  public Type: CharacterDataType;
+  public CharacterName: string;
+  public CharacterID: number;
+  public Stats: object;
+  public Token: OAuth2Token;
+  public Selected: boolean;
 }
 
 export class OAuth2Token {

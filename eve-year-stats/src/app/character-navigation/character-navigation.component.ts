@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { AuthService, TokenData } from '../auth/auth.service';
+import { AuthService, CharacterData } from '../auth/auth.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -9,10 +9,6 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./character-navigation.component.css']
 })
 export class CharacterNavigationComponent implements OnInit {
-  token$: Observable<TokenData>[];
-  currentToken$: Observable<TokenData>;
-
-
   constructor(
     private _authService: AuthService,
     private _route: ActivatedRoute,
@@ -22,26 +18,18 @@ export class CharacterNavigationComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getTokens();
-    // if (this._route.children.length === 0 && this.tokens.length > 0) {
-    //   this._router.navigate(['/stats', this._authService.getTokens()[0].tokenInfo.CharacterID]);
-    // }
-    // this.currentToken$ = this._route.paramMap.switchMap((params: ParamMap) => {
-    //   return this._authService.getCurrentToken();
-    // });
   }
 
-  private getTokens() {
-    return this._authService.getTokens();
+  private getCharacters(): CharacterData[] {
+    return this._authService.getCharacters();
   }
 
-  public getCurrentToken(): TokenData {
-    return this._authService.getCurrentToken();
+  public getSelectedToken(): CharacterData {
+    return this._authService.getSelectedCharacter();
   }
 
-  public setCurrentToken(CharacterID: number): void {
-    this._authService.setCurrentToken(CharacterID);
-    console.log(this.getCurrentToken());
+  public setSelectedCharacter(CharacterID: number): void {
+    this._authService.setSelectedCharacter(CharacterID);
   }
 
 }
