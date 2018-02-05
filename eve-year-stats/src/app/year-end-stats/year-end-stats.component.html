@@ -1,5 +1,5 @@
-<ngb-tabset *ngIf="hasCurrentToken()">
-  	<ng-template ngFor let-stat [ngForOf]="getStats()">
+<ngb-tabset *ngIf="getSelectedCharacter() !== null">
+  	<ng-template ngFor let-stat [ngForOf]="getSelectedCharacter().Stats">
 		<ngb-tab title="{{ stat.year }}">
 			<ng-template ngbTabContent>
 				<h2> Your stats in {{ stat.year }}</h2>

@@ -7,15 +7,15 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-        <li *ngFor="let token of getTokens()" class="nav-item">
-          <a *ngIf="getCurrentToken() != null && token.tokenInfo.CharacterID == getCurrentToken().tokenInfo.CharacterID" 
-            class="nav-link user active" (click)="setCurrentToken(token.tokenInfo.CharacterID)">
-            <img src="https://imageserver.eveonline.com/Character/{{ token.tokenInfo.CharacterID }}_32.jpg"> {{ token.tokenInfo.CharacterName }}
+        <li *ngFor="let character of getCharacters()" class="nav-item">
+          <a *ngIf="character.Selected === true" 
+            class="nav-link user active" (click)="setCurrentToken(character.CharacterID)">
+            <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
             <span class="sr-only">(current)</span>
           </a>
-          <a *ngIf="getCurrentToken() == null || token.tokenInfo.CharacterID != getCurrentToken().tokenInfo.CharacterID" class="nav-link user"
-            (click)="setCurrentToken(token.tokenInfo.CharacterID)">
-            <img src="https://imageserver.eveonline.com/Character/{{ token.tokenInfo.CharacterID }}_32.jpg"> {{ token.tokenInfo.CharacterName }}
+          <a *ngIf="character.Selected === false" class="nav-link user"
+            (click)="setCurrentToken(character.CharacterID)">
+            <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
           </a>
         </li>
     </ul>
