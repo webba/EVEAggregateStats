@@ -88,6 +88,9 @@
 					<div class="col-md-12">
 						<h2 class="text-center" id="modules">Modules</h2>
 					</div>
+					<div class="col-md-12" style="height:100px;">
+						<app-damage-chart [label]="'damage-chart-' + stat.year" [data]="stat.combat"></app-damage-chart>
+					</div>
 					<div class="col-md-12">
 						<app-combat-damage-component title="Energy Turret Damage" 
 							[toAmount]="stat.combat.damage_to_players_energy_amount" 
