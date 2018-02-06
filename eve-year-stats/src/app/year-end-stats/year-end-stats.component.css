@@ -2,3 +2,25 @@
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
     padding:4px;
 }
+
+.timer{
+    height: 32px;
+    width: 32px;
+}
+
+.timer.timer-circle{
+    padding: 8px;
+    background-image: url("/assets/img/Crimewatch_TimerCircle.png");
+}
+
+.timer.timer-blue{
+    filter: url(/assets/img/filters.svg#blue);
+}
+
+.timer.timer-red{
+    filter: url(/assets/img/filters.svg#red);
+}
+
+.timer.timer-yellow{
+    filter: url(/assets/img/filters.svg#yellow);
+}

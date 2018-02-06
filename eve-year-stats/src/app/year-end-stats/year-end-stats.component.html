@@ -267,76 +267,77 @@
 					</div>
 				</div>
 				<app-title-h2 name="Logi"></app-title-h2>
-				<!--shield Reps-->
+				<!--Logi-->
 				<div class="row mb-5">
-						<div class="col-md-3">
-							<div class="row card box-shadow px-1 mx-1">
-								<div class="col-md-12">
+					<!-- Shield -->
+					<div class="col-md-3">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img src="https://imageserver.eveonline.com/Type/3606_64.png" alt="Tackle">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Repaired
+										<app-character-stat [value]="stat.combat.repair_shield_remote_amount"></app-character-stat></div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Recived
+										<app-character-stat [value]="stat.combat.repair_shield_by_remote_amount"></app-character-stat></div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Self repair
+										<app-character-stat [value]="stat.combat.repair_shield_self_amount"></app-character-stat></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Armor -->
+					<div class="col-md-3">
+						<div class="row card box-shadow px-1  mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img src="https://imageserver.eveonline.com/Type/41463_64.png" alt="Armor">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Repaired
+										<app-character-stat [value]="stat.combat.repair_armor_remote_amount"></app-character-stat></div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Recived
+										<app-character-stat [value]="stat.combat.repair_armor_by_remote_amount"></app-character-stat></div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Self repair
+										<app-character-stat [value]="stat.combat.repair_armor_self_amount"></app-character-stat></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--hull-->
+					<div class="col-md-3">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-12 text-center">
-											<img src="https://imageserver.eveonline.com/Type/3606_64.png" alt="Tackle">
+											<img src="https://imageserver.eveonline.com/Type/27930_64.png" alt="Tackle">
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12 text-center p-2">Repaired
-											<app-character-stat [value]="stat.combat.repair_shield_remote_amount"></app-character-stat></div>
+											<app-character-stat [value]="stat.combat.repair_hull_remote_amount"></app-character-stat></div>
 									</div>
 									<div class="row">
 										<div class="col-md-12 text-center p-2">Recived
-											<app-character-stat [value]="stat.combat.repair_shield_by_remote_amount"></app-character-stat></div>
+											<app-character-stat [value]="stat.combat.repair_hull_by_remote_amount"></app-character-stat></div>
 									</div>
 									<div class="row">
 										<div class="col-md-12 text-center p-2">Self repair
-											<app-character-stat [value]="stat.combat.repair_shield_self_amount"></app-character-stat></div>
+											<app-character-stat [value]="stat.combat.repair_hull_self_amount"></app-character-stat></div>
 									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Armor -->
-						<div class="col-md-3">
-							<div class="row card box-shadow px-1  mx-1">
-								<div class="col-md-12">
-										<div class="row">
-												<div class="col-md-12 text-center">
-													<img src="https://imageserver.eveonline.com/Type/41463_64.png" alt="Armor">
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-12 text-center p-2">Repaired
-													<app-character-stat [value]="stat.combat.repair_armor_remote_amount"></app-character-stat></div>
-											</div>
-											<div class="row">
-												<div class="col-md-12 text-center p-2">Recived
-													<app-character-stat [value]="stat.combat.repair_armor_by_remote_amount"></app-character-stat></div>
-											</div>
-											<div class="row">
-												<div class="col-md-12 text-center p-2">Self repair
-													<app-character-stat [value]="stat.combat.repair_armor_self_amount"></app-character-stat></div>
-											</div>
-								</div>
-							</div>
-						</div>
-						<!--hull-->
-						<div class="col-md-3">
-							<div class="row card box-shadow px-1 mx-1">
-								<div class="col-md-12">
-										<div class="row">
-												<div class="col-md-12 text-center">
-													<img src="https://imageserver.eveonline.com/Type/27930_64.png" alt="Tackle">
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-12 text-center p-2">Repaired
-													<app-character-stat [value]="stat.combat.repair_hull_remote_amount"></app-character-stat></div>
-											</div>
-											<div class="row">
-												<div class="col-md-12 text-center p-2">Recived
-													<app-character-stat [value]="stat.combat.repair_hull_by_remote_amount"></app-character-stat></div>
-											</div>
-											<div class="row">
-												<div class="col-md-12 text-center p-2">Self repair
-													<app-character-stat [value]="stat.combat.repair_hull_self_amount"></app-character-stat></div>
-											</div>
 								</div>
 							</div>
 						</div>
@@ -344,32 +345,176 @@
 						<div class="col-md-3 ">
 							<div class="row card box-shadow px-1 mx-1">
 								<div class="col-md-12">
-										<div class="row">
-												<div class="col-md-12 text-center">
-													<img src="https://imageserver.eveonline.com/Type/41566_64.png" alt="Tackle">
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-12 text-center p-2">Repaired
-													<app-character-stat [value]="stat.combat.repair_capacitor_remote_amount"></app-character-stat></div>
-											</div>
-											<div class="row">
-												<div class="col-md-12 text-center p-2">Recived
-													<app-character-stat [value]="stat.combat.repair_capacitor_by_remote_amount"></app-character-stat></div>
-											</div>
-											<div class="row">
-												<div class="col-md-12 text-center p-2">Self repair
-													<app-character-stat [value]="stat.combat.repair_capacitor_self_amount"></app-character-stat></div>
-											</div>
+									<div class="row">
+										<div class="col-md-12 text-center">
+											<img src="https://imageserver.eveonline.com/Type/41566_64.png" alt="Tackle">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 text-center p-2">Repaired
+											<app-character-stat [value]="stat.combat.repair_capacitor_remote_amount"></app-character-stat></div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 text-center p-2">Recived
+											<app-character-stat [value]="stat.combat.repair_capacitor_by_remote_amount"></app-character-stat></div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 text-center p-2">Self repair
+											<app-character-stat [value]="stat.combat.repair_capacitor_self_amount"></app-character-stat></div>
+									</div>
 								</div>
 							</div>
 						</div>
 						<app-repair-chart [label]="'repair-chart-' + stat.year" [data]="stat.combat" datapoints='[{"name":"repair","stat":"repair_capacitor_self_amount"},{"name":"repair2","stat":"repair_capacitor_self_amount"}]'></app-repair-chart>
 					</div>
-				<app-title-h2 name="PVP aggresion"></app-title-h2>
+				<app-title-h2 name="Timers"></app-title-h2>
+				<!--Timers-->
+				<div class="row mb-5">
+					<!-- Duels -->
+					<div class="col-md-6">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer" src="/assets/img/Crimewatch_LimitedEngagement_64.png" alt="Duels">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Duels Requested
+										<app-character-stat [value]="stat.combat.duel_requested"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Limited Engagement -->
+					<div class="col-md-6">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-circle timer-blue" src="/assets/img/Crimewatch_LimitedEngagement.png" alt="Limited Engagement">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Limited Engagement Timers
+										<app-character-stat [value]="stat.combat.engagement_register"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mb-5">
+					<!-- PVE Flags -->
+					<div class="col-md-3">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-circle timer-yellow" src="/assets/img/Crimewatch_Combat.png" alt="PVE Timer">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">PVE Timers
+										<app-character-stat [value]="stat.combat.npc_flag_set"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- PVP Flags -->
+					<div class="col-md-3">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-circle timer-red" src="/assets/img/Crimewatch_Combat.png" alt="PVP Timers">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">PVP Timers
+										<app-character-stat [value]="stat.combat.pvp_flag_set"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Criminal Flags -->
+					<div class="col-md-3">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-circle timer-red" src="/assets/img/Crimewatch_SuspectCriminal.png" alt="Criminal Timers">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Criminal Timers
+										<app-character-stat [value]="stat.combat.criminal_flag_set"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Weapon Flags -->
+					<div class="col-md-3">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-circle timer-red" src="/assets/img/Crimewatch_Locked.png" alt="Weapons Timers">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Weapons Timers
+										<app-character-stat [value]="stat.combat.weapon_flag_set"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-				<app-title-h1 name="Travel"></app-title-h1>
+				<app-title-h2 name="Travel"></app-title-h2>
 				<app-title-h2 name="Exploring"></app-title-h2>
+				<!--Scanning-->
+				<div class="row mb-5">
+					<!-- Probe Scan -->
+					<div class="col-md-6">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-blue" src="/assets/img/probe_scan.png" alt="Pobe Scan">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Probe Scans
+										<app-character-stat [value]="stat.combat.probe_scans"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Directional Scan -->
+					<div class="col-md-6">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-blue" src="/assets/img/d-scan.png" alt="Directional Scan">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Directional Scans
+										<app-character-stat [value]="stat.combat.dscans"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<app-title-h1 name="Chat"></app-title-h1>
 				<app-title-h1 name="iskies"></app-title-h1>
