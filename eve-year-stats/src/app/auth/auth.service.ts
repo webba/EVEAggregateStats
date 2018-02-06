@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { AuthServiceConfig } from './auth.service.config';
 import { Observable } from 'rxjs/Observable';
 import {  } from 'rxjs/operators/';
-import { Agent } from 'https';
+//import { Agent } from 'https';
+// Not needed?!?!? ^^^, 
 import { isNumber } from 'util';
 
 @Injectable()
