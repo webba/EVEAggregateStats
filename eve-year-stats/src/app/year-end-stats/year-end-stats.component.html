@@ -252,7 +252,8 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Self destructs
-										<app-character-stat [value]="stat.combat.self_destructs"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.self_destructs"></app-character-stat>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">overload
@@ -280,15 +281,18 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Repaired
-										<app-character-stat [value]="stat.combat.repair_shield_remote_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_shield_remote_amount"></app-character-stat>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Recived
-										<app-character-stat [value]="stat.combat.repair_shield_by_remote_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_shield_by_remote_amount"></app-character-stat>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Self repair
-										<app-character-stat [value]="stat.combat.repair_shield_self_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_shield_self_amount"></app-character-stat>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -304,15 +308,18 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Repaired
-										<app-character-stat [value]="stat.combat.repair_armor_remote_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_armor_remote_amount"></app-character-stat>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Recived
-										<app-character-stat [value]="stat.combat.repair_armor_by_remote_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_armor_by_remote_amount"></app-character-stat>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Self repair
-										<app-character-stat [value]="stat.combat.repair_armor_self_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_armor_self_amount"></app-character-stat>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -328,15 +335,18 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Repaired
-										<app-character-stat [value]="stat.combat.repair_hull_remote_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_hull_remote_amount"></app-character-stat>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Recived
-										<app-character-stat [value]="stat.combat.repair_hull_by_remote_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_hull_by_remote_amount"></app-character-stat>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Self repair
-										<app-character-stat [value]="stat.combat.repair_hull_self_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_hull_self_amount"></app-character-stat>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -352,15 +362,18 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Repaired
-										<app-character-stat [value]="stat.combat.repair_capacitor_remote_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_capacitor_remote_amount"></app-character-stat>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Recived
-										<app-character-stat [value]="stat.combat.repair_capacitor_by_remote_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_capacitor_by_remote_amount"></app-character-stat>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 text-center p-2">Self repair
-										<app-character-stat [value]="stat.combat.repair_capacitor_self_amount"></app-character-stat></div>
+										<app-character-stat [value]="stat.combat.repair_capacitor_self_amount"></app-character-stat>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -477,11 +490,129 @@
 				</div>
 
 				<app-title-h2 name="Travel"></app-title-h2>
-				<app-title-h2 name="Exploring"></app-title-h2>
-				<!--Scanning-->
+				<!--Travel-->
 				<div class="row mb-5">
+					<!-- Warps -->
+					<div class="col-md-4">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-blue" src="/assets/img/44_32_18.png" alt="Warps">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">High Sec Warps
+										<app-character-stat [value]="stat.travel.warps_high_sec"></app-character-stat>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Low Sec Warps
+										<app-character-stat [value]="stat.travel.warps_low_sec"></app-character-stat>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Null Sec Warps
+										<app-character-stat [value]="stat.travel.warps_null_sec"></app-character-stat>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Wormhole Warps
+										<app-character-stat [value]="stat.travel.warps_wormhole"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Warp Distance -->
+					<div class="col-md-4">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-blue" src="/assets/img/44_32_18.png" alt="Warp Distance">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">High Sec Warp Distance
+										<app-character-stat [value]="stat.travel.distance_warped_high_sec"></app-character-stat>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Low Sec Warp Distance
+										<app-character-stat [value]="stat.travel.distance_warped_low_sec"></app-character-stat>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Null Sec Warp Distance
+										<app-character-stat [value]="stat.travel.distance_warped_null_sec"></app-character-stat>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Wormhole Warp Distance
+										<app-character-stat [value]="stat.travel.distance_warped_wormhole"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Jumps -->
+					<div class="col-md-4">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-blue" src="/assets/img/44_32_1.png" alt="Jumps">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">High Sec Jumps
+										<app-character-stat [value]="stat.travel.jumps_stargate_high_sec"></app-character-stat>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Low Sec Jumps
+										<app-character-stat [value]="stat.travel.jumps_stargate_low_sec"></app-character-stat>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Null Sec Jumps
+										<app-character-stat [value]="stat.travel.jumps_stargate_null_sec"></app-character-stat>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Wormhole Jumps
+										<app-character-stat [value]="stat.travel.jumps_wormhole"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<app-title-h2 name="Exploring"></app-title-h2>
+				<!--Exploring-->
+				<div class="row mb-5">
+					<!-- Directional Scan -->
+					<div class="col-md-3">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer timer-blue" src="/assets/img/d-scan.png" alt="Directional Scan">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Directional Scans
+										<app-character-stat [value]="stat.combat.dscans"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<!-- Probe Scan -->
-					<div class="col-md-6">
+					<div class="col-md-3">
 						<div class="row card box-shadow px-1 mx-1">
 							<div class="col-md-12">
 								<div class="row">
@@ -497,18 +628,35 @@
 							</div>
 						</div>
 					</div>
-					<!-- Directional Scan -->
-					<div class="col-md-6">
+					<!-- Probe Launcher -->
+					<div class="col-md-3">
 						<div class="row card box-shadow px-1 mx-1">
 							<div class="col-md-12">
 								<div class="row">
 									<div class="col-md-12 text-center">
-										<img class="timer timer-blue" src="/assets/img/d-scan.png" alt="Directional Scan">
+										<img class="timer" src="https://imageserver.eveonline.com/Type/17938_64.png" alt="Pobe Launcher">
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-12 text-center p-2">Directional Scans
-										<app-character-stat [value]="stat.combat.dscans"></app-character-stat>
+									<div class="col-md-12 text-center p-2">Probes Launched
+										<app-character-stat [value]="stat.module.activations_probe_launcher"></app-character-stat>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Hacking -->
+					<div class="col-md-3">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img class="timer" src="https://imageserver.eveonline.com/Type/22175_64.png" alt="Hacking">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Hacking Successes
+										<app-character-stat [value]="stat.industry.hacking_successes"></app-character-stat>
 									</div>
 								</div>
 							</div>
