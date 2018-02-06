@@ -31,6 +31,7 @@ export class CharacterNavigationComponent implements OnInit {
   }
 
   public setSelectedCharacter(CharacterID: number): void {
+    this._authService.setAggregate(false);
     this._authService.setSelectedCharacter(CharacterID);
   }
 
@@ -38,7 +39,11 @@ export class CharacterNavigationComponent implements OnInit {
     location.href = this._authService.getLoginUrl();
   }
 
-  public setAggregateStats() {
-    console.log(this._authService.getAggregateStats());
+  public setAggregate() {
+    this._authService.setAggregate(true);
+  }
+
+  public getAggregate() {
+    return this._authService.getAggregate();
   }
 }

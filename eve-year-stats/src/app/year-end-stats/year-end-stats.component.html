@@ -1,5 +1,5 @@
-<ngb-tabset *ngIf="getSelectedCharacter() !== null">
-  	<ng-template ngFor let-stat [ngForOf]="getSelectedCharacter().Stats">
+<ngb-tabset *ngIf="getSelectedStats() !== null">
+  	<ng-template ngFor let-stat [ngForOf]="getSelectedStats()">
 		<ngb-tab title="{{ stat.year }}">
 			<ng-template ngbTabContent>
 				<h2> Your stats in {{ stat.year }}</h2>
@@ -216,7 +216,7 @@
 	 	</ngb-tab>
 	  </ng-template>
 	  
-	  	<ng-template ngFor let-stat [ngForOf]="getSelectedCharacter().Stats">
+	  	<ng-template ngFor let-stat [ngForOf]="getSelectedStats()">
 			<ngb-tab title="{{ stat.year }} Full">
 				<ng-template ngbTabContent>
 					<!-- start -->
