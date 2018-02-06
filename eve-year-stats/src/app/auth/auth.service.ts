@@ -9,11 +9,14 @@ import { isNumber } from 'util';
 @Injectable()
 export class AuthService {
   private characters: CharacterData[];
+  private aggregateStats: Object[];
+  private aggregate: boolean;
 
   constructor(private _http: HttpClient,
     @Optional() private _authServiceConfig: AuthServiceConfig
   ) {
     this.loadCharacters();
+    this.aggregate = false;
    }
 
   public configure(__authServiceConfig: AuthServiceConfig) {
@@ -194,27 +197,7 @@ export class AuthService {
   }
 
   public getAggregateStats(): Object[] {
-    const aggregateStats = [];
-    for (let i = 0; i < this.characters.length; i++) {
-      const character = this.characters[i];
-      for (let j = 0; j < this.characters[i].Stats.length; j++) {
-        let found = false;
-        const stat = character.Stats[j];
-        for (let y = 0; y < aggregateStats.length; y++) {
-          const aggregate = aggregateStats[y];
-          if (aggregate.year === stat['year']) {
-            found = true;
-            const year = aggregate.year;
-            aggregateStats[y] = this.addObjects(aggregate, stat);
-            aggregateStats[y].year = year;
-          }
-        }
-        if (!found) {
-          aggregateStats.push(stat);
-        }
-      }
-    }
-    return aggregateStats;
+    return this.aggregateStats;
   }
 
   private addObjects(base: Object, add: Object): Object {
@@ -224,14 +207,55 @@ export class AuthService {
           if (isNumber(add[property]) && isNumber(base[property])) {
             base[property] = base[property] + add[property];
           } else {
-            base[property] = this.addObjects(base[property], add[property]);
+            base[property] = this.addObjects(Object.assign({}, base[property]), Object.assign({}, add[property]));
           }
         } else {
-          base[property] = add[property];
+          if (isNumber(add[property])) {
+            base[property] = add[property];
+          } else {
+            base[property] = Object.assign({}, add[property]);
+          }
         }
       }
     }
     return base;
+  }
+
+  public getAggregate(): boolean {
+    return this.aggregate;
+  }
+
+  public setAggregate(aggregate: boolean): void {
+    this.aggregateStats = [];
+    for (let i = 0; i < this.characters.length; i++) {
+      const character = this.characters[i];
+      for (let j = 0; j < character.Stats.length; j++) {
+        let found = false;
+        const stat = Object.assign({}, character.Stats[j]);
+        for (let y = 0; y < this.aggregateStats.length; y++) {
+          const aggregate = this.aggregateStats[y];
+          if (aggregate['year'] === stat['year']) {
+            found = true;
+            const year = aggregate['year'];
+            this.aggregateStats[y] = this.addObjects(Object.assign({}, aggregate), Object.assign({}, stat));
+            this.aggregateStats[y]['year'] = year;
+          }
+        }
+        if (!found) {
+          this.aggregateStats.push(stat);
+        }
+      }
+    }
+    this.aggregate = aggregate;
+  }
+
+  public getSelectedStats(): Object[] {
+    if (this.aggregate) {
+      return this.getAggregateStats();
+    } else if (this.getSelectedCharacter() !== null) {
+      return this.getSelectedCharacter().Stats;
+    }
+    return null;
   }
 }
 

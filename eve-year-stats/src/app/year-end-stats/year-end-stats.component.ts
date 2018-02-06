@@ -25,6 +25,10 @@ export class YearEndStatsComponent implements OnInit {
     return this._authService.getSelectedCharacter();
   }
 
+  public getSelectedStats(): Object[] {
+    return this._authService.getSelectedStats();
+  }
+
   public hasSelectedCharacter(): Boolean {
     return this._authService.getSelectedCharacter() != null;
   }

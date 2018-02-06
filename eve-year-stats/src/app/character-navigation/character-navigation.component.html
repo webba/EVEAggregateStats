@@ -8,18 +8,21 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li *ngFor="let character of getCharacters()" class="nav-item link">
-        <a *ngIf="character.Selected === true" 
+        <a *ngIf="character.Selected === true && !getAggregate()" 
           class="nav-link user active" (click)="setSelectedCharacter(character.CharacterID)">
           <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
           <span class="sr-only">(current)</span>
         </a>
-        <a *ngIf="character.Selected === false" class="nav-link user link"
+        <a *ngIf="character.Selected === false || getAggregate()" class="nav-link user link"
           (click)="setSelectedCharacter(character.CharacterID)">
           <img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
         </a>
       </li>
       <li *ngIf="getCharacters().length > 0" class="nav-item user link">
-        <a class="nav-link user active" (click)="setAggregateStats()">
+        <a *ngIf="getAggregate()" class="nav-link user active" (click)="setAggregate()">
+          <img src="https://imageserver.eveonline.com/Alliance/1_32.png"> All
+        </a>
+        <a *ngIf="!getAggregate()" class="nav-link user" (click)="setAggregate()">
           <img src="https://imageserver.eveonline.com/Alliance/1_32.png"> All
         </a>
       </li>
