@@ -20,41 +20,41 @@ import { TitleH1Component } from './templates/title-h1/title-h1.component';
 import { TitleH2Component } from './templates/title-h1/title-h2.component';
 import { RepairChartComponent } from './charts/repair-chart/repair-chart.component';
 const appRoutes: Routes = [
-  { path: 'oauth-callback', component: OAuthCallbackComponent },
-  {
-    path: 'stats',
-    component: CharacterNavigationComponent
-  },
-  { path: '', redirectTo: 'stats', pathMatch: 'full' }
+	{ path: 'oauth-callback', component: OAuthCallbackComponent },
+	{
+		path: 'stats',
+		component: CharacterNavigationComponent
+	},
+	{ path: '', redirectTo: 'stats', pathMatch: 'full' }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    OAuthCallbackComponent,
-    YearEndStatsComponent,
-    CharacterNavigationComponent,
-    CharacterStatComponent,
-    CombatChartComponent,
-    CombatDamageComponentComponent,
-    DamageChartComponent,
-    Damage2ChartComponent,
-    TitleH1Component,
-    TitleH2Component,
-    RepairChartComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
-    ),
-    NgbModule.forRoot()
-  ],
-  providers: [
-    AuthService,
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		OAuthCallbackComponent,
+		YearEndStatsComponent,
+		CharacterNavigationComponent,
+		CharacterStatComponent,
+		CombatChartComponent,
+		CombatDamageComponentComponent,
+		DamageChartComponent,
+		Damage2ChartComponent,
+		TitleH1Component,
+		TitleH2Component,
+		RepairChartComponent,
+	],
+	imports: [
+		BrowserModule,
+		HttpClientModule,
+		RouterModule.forRoot(
+			appRoutes,
+			{ enableTracing: false } // <-- debugging purposes only
+		),
+		NgbModule.forRoot()
+	],
+	providers: [
+		AuthService,
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,23 +3,23 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { OAuthCallbackComponent } from './oauth-callback.component';
 
 describe('OAuthCallbackComponent', () => {
-  let component: OAuthCallbackComponent;
-  let fixture: ComponentFixture<OAuthCallbackComponent>;
+	let component: OAuthCallbackComponent;
+	let fixture: ComponentFixture<OAuthCallbackComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ OAuthCallbackComponent ]
-    })
-    .compileComponents();
-  }));
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ OAuthCallbackComponent ]
+		})
+		.compileComponents();
+	}));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(OAuthCallbackComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(OAuthCallbackComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

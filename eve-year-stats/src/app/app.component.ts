@@ -3,19 +3,19 @@ import { AuthService } from './auth/auth.service';
 import { authServiceConfig } from './auth/auth.config';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
-    title = 'app';
+		title = 'app';
 
-  constructor(private authService: AuthService) {
-    this.configureOAuth();
-  }
+	constructor(private authService: AuthService) {
+		this.configureOAuth();
+	}
 
-  private configureOAuth() {
-    this.authService.configure(authServiceConfig);
-  }
+	private configureOAuth() {
+		this.authService.configure(authServiceConfig);
+	}
 }

@@ -30,7 +30,6 @@ export class Damage2ChartComponent implements OnInit {
 
 	public getChart(): void {
 		if (!this.chart) {
-			//console.log(this.data);
 			this.chart = new Chart(this.label, {
 				type: 'horizontalBar',
 				options: {
@@ -45,7 +44,19 @@ export class Damage2ChartComponent implements OnInit {
 					}
 				},
 				data: {
-					labels: ['Energy', 'Hybrid', 'Missile', 'Projectile', 'Drone', 'Fighter', 'Fighter Bomber', 'Bomb', 'Smart Bomb', 'Super Weapon','Structure'],
+					labels: [
+						'Energy',
+						'Hybrid',
+						'Missile',
+						'Projectile',
+						'Drone',
+						'Fighter',
+						'Fighter Bomber',
+						'Bomb',
+						'Smart Bomb',
+						'Super Weapon',
+						'Structure'
+					],
 					datasets: [{
 						label: 'Shots',
 						backgroundColor: 'rgba(255, 0, 0, 1)',
