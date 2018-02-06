@@ -30,7 +30,7 @@ export class Damage2ChartComponent implements OnInit {
 
 	public getChart(): void {
 		if (!this.chart) {
-			console.log(this.data);
+			//console.log(this.data);
 			this.chart = new Chart(this.label, {
 				type: 'horizontalBar',
 				options: {
