@@ -2,10 +2,39 @@ import { Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { AuthServiceConfig } from './auth.service.config';
 import { Observable } from 'rxjs/Observable';
-import {	} from 'rxjs/operators/';
-//import { Agent } from 'https';
-// Not needed?!?!? ^^^, 
 import { isNumber } from 'util';
+
+
+export enum CharacterDataType {
+	Active,
+	Cached,
+	Shared
+}
+export class OAuth2Token {
+	public accessToken: string;
+	public tokenType: string;
+	public expires: Date;
+	public state: string;
+}
+
+export class CharacterData {
+	public Type: CharacterDataType;
+	public CharacterName: string;
+	public CharacterID: number;
+	public Stats: Object[];
+	public Token: OAuth2Token;
+	public Selected: boolean;
+}
+
+export class TokenInfo {
+	public CharacterID: number;
+	public CharacterName: string;
+	public CharacterOwnerHash: string;
+	public ExpiresOn: string;
+	public IntellectualProperty: string;
+	public Scopes: string;
+	public TokenType: string;
+}
 
 @Injectable()
 export class AuthService {
@@ -234,11 +263,11 @@ export class AuthService {
 				let found = false;
 				const stat = Object.assign({}, character.Stats[j]);
 				for (let y = 0; y < this.aggregateStats.length; y++) {
-					const aggregate = this.aggregateStats[y];
-					if (aggregate['year'] === stat['year']) {
+					const aggregateStat = this.aggregateStats[y];
+					if (aggregateStat['year'] === stat['year']) {
 						found = true;
-						const year = aggregate['year'];
-						this.aggregateStats[y] = this.addObjects(Object.assign({}, aggregate), Object.assign({}, stat));
+						const year = aggregateStat['year'];
+						this.aggregateStats[y] = this.addObjects(Object.assign({}, aggregateStat), Object.assign({}, stat));
 						this.aggregateStats[y]['year'] = year;
 					}
 				}
@@ -258,36 +287,4 @@ export class AuthService {
 		}
 		return null;
 	}
-}
-
-export enum CharacterDataType {
-	Active,
-	Cached,
-	Shared
-}
-
-export class CharacterData {
-	public Type: CharacterDataType;
-	public CharacterName: string;
-	public CharacterID: number;
-	public Stats: Object[];
-	public Token: OAuth2Token;
-	public Selected: boolean;
-}
-
-export class OAuth2Token {
-	public accessToken: string;
-	public tokenType: string;
-	public expires: Date;
-	public state: string;
-}
-
-export class TokenInfo {
-	public CharacterID: number;
-	public CharacterName: string;
-	public CharacterOwnerHash: string;
-	public ExpiresOn: string;
-	public IntellectualProperty: string;
-	public Scopes: string;
-	public TokenType: string;
 }
