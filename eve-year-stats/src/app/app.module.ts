@@ -16,6 +16,7 @@ import { CombatChartComponent } from './charts/combat-chart/combat-chart.compone
 import { CombatDamageComponentComponent } from './combat-damage-component/combat-damage-component.component';
 import { DamageChartComponent } from './charts/damage-chart/damage-chart.component';
 import { Damage2ChartComponent } from './charts/damage2-chart/damage2-chart.component';
+import { TitleH1Component } from './templates/title-h1/title-h1.component';
 const appRoutes: Routes = [
   { path: 'oauth-callback', component: OAuthCallbackComponent },
   {
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     CombatDamageComponentComponent,
     DamageChartComponent,
     Damage2ChartComponent,
+    TitleH1Component,
   ],
   imports: [
     BrowserModule,

@@ -4,12 +4,13 @@
 			<ng-template ngbTabContent>
 				<h2> Your stats in {{ stat.year }}</h2>
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h1 clas="text-center" id="pvp" >PVP</h1></div>
+				<app-title-h1 [name]="PVP"></app-title-h1>
 				
 				
 				<div *ngIf="stat.combat" class="row justify-content-md-center">
 					<div class="col-md-3 ">
 						<div class="row mb-2">
-							<div class="col-md-12 card box-shadow">
+							<div class="col-md-12 card box-shadow py-md-2">
 								<div class="row">
 									<div class="col-md-12"><h4 class="text-center">You Killed</h4></div>
 									<div class="col-md-8">High sec</div>
@@ -24,9 +25,9 @@
 							</div>
 						</div>
 						<div class="row mb-2">
-								<div class="col-md-12 card box-shadow">
+								<div class="col-md-12 card box-shadow py-md-2">
 									<div class="row">
-										<div class="col-md-12"><h4 class="text-center">You Killed</h4></div>
+										<div class="col-md-12"><h4 class="text-center">You podded</h4></div>
 										<div class="col-md-8">High sec</div>
 										<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.pod_high_sec"></app-character-stat></div>
 										<div class="col-md-8">Low sec</div>
@@ -42,46 +43,40 @@
 					<div class="col-md-6 text-center">
 						<app-combat-chart [label]="'chart-' + stat.year" [data]="stat.combat"></app-combat-chart>
 					</div>
-					<div class="col-md-3">
-						<div class="row">
-							<div class="col-md-12"><h4 class="text-center">You Died</h4></div>
-							<div class="col-md-8">High sec</div>
-							<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.deaths_high_sec"></app-character-stat></div>
-							<div class="col-md-8">Low sec</div>
-							<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.deaths_low_sec"></app-character-stat></div>
-							<div class="col-md-8">Null sec</div>
-							<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.deaths_null_sec"></app-character-stat></div>
-							<div class="col-md-8">Wh</div>
-							<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.deaths_wormhole"></app-character-stat></div>
-							<div class="col-md-12"><h4 class="text-center">You Were Podded</h4></div>
-							<div class="col-md-8">High sec</div>
-							<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.deaths_pod_high_sec"></app-character-stat></div>
-							<div class="col-md-8">Low sec</div>
-							<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.deaths_pod_low_sec"></app-character-stat></div>
-							<div class="col-md-8">Null sec</div>
-							<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.deaths_pod_null_sec"></app-character-stat></div>
-							<div class="col-md-8">Wh</div>
-							<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.deaths_pod_wormhole"></app-character-stat></div>
+					<div class="col-md-3 ">
+						<div class="row mb-2">
+							<div class="col-md-12 card box-shadow py-md-2">
+								<div class="row">
+									<div class="col-md-12"><h4 class="text-center">You died</h4></div>
+									<div class="col-md-8">High sec</div>
+									<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.kills_high_sec"></app-character-stat></div>
+									<div class="col-md-8">Low sec</div>
+									<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.kills_low_sec"></app-character-stat></div>
+									<div class="col-md-8">Null sec</div>
+									<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.kills_null_sec"></app-character-stat></div>
+									<div class="col-md-8">Wh</div>
+									<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.kills_wormhole"></app-character-stat></div>
+								</div>
+							</div>
 						</div>
+						<div class="row mb-2">
+								<div class="col-md-12 card box-shadow py-md-2">
+									<div class="row">
+										<div class="col-md-12"><h4 class="text-center">You were</h4></div>
+										<div class="col-md-8">High sec</div>
+										<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.pod_high_sec"></app-character-stat></div>
+										<div class="col-md-8">Low sec</div>
+										<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.pod_low_sec"></app-character-stat></div>
+										<div class="col-md-8">Null sec</div>
+										<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.pod_null_sec"></app-character-stat></div>
+										<div class="col-md-8">Wh</div>
+										<div class="col-md-4 text-md-right"><app-character-stat [value]="stat.combat.pod_wormhole"></app-character-stat></div>
+									</div>
+								</div>
+							</div>
 					</div>
 					<div class="col-md-12">
-						<h4 class="text-center">You assisted on: <app-character-stat [value]="stat.combat.kills_assists"></app-character-stat> kills</h4>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="col-md-8">
-								You Drained</div>
-							<div class="col-md-4 text-md-right">
-								<app-character-stat [value]="stat.combat.cap_draining_pc"></app-character-stat> GJ
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="col-md-8">
-								You Were Drained For</div>
-							<div class="col-md-4 text-md-right">
-								<app-character-stat [value]="stat.combat.cap_drainedby_pc"></app-character-stat> GJ
-							</div>
-						</div>
+						<h4 class="text-center">You assisted on <app-character-stat [value]="stat.combat.kills_assists"></app-character-stat> kills</h4>
 					</div>
 				</div>
 				<div class="row border-bottom pb-3 mb-4">

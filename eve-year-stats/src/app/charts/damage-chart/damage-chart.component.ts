@@ -42,7 +42,8 @@ export class DamageChartComponent implements OnInit {
 				yAxes: [{
 					 stacked: false
 				}]
-		  }
+			}
+			
 		  },
 		  data: {
 			 labels: ['Energy', 'Hybrid', 'Missile', 'Projectile', 'Drone', 'Fighter', 'Fighter Bomber', 'Bomb', 'Smart Bomb', 'Super Weapon','Structure'],
