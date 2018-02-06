@@ -3,8 +3,7 @@
 		<ngb-tab title="{{ stat.year }}">
 			<ng-template ngbTabContent>
 				<h2> Your stats in {{ stat.year }}</h2>
-				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h1 clas="text-center" id="pvp" >PVP</h1></div>
-				<app-title-h1 [name]="PVP"></app-title-h1>
+				<app-title-h1 name="PVP"></app-title-h1>
 				
 				
 				<div *ngIf="stat.combat" class="row justify-content-md-center">
@@ -80,9 +79,7 @@
 					</div>
 				</div>
 				<div class="row border-bottom pb-3 mb-4">
-					<div class="col-md-12">
-						<h2 class="text-center" id="modules">Modules</h2>
-					</div>
+					<app-title-h1 name="PVP">Modules</app-title-h1>
 					<div class="col-md-6">
 
 						<app-damage-chart [label]="'damage-chart-' + stat.year" [data]="stat.combat"></app-damage-chart>
@@ -175,9 +172,8 @@
 					<div class="col-md-3 text-center">overloads<br><app-character-stat [value]="stat.module.overload"></app-character-stat></div>
 				</div>
 					
-
-				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h2 clas="text-center" id="logi" >Logi</h2></div>
-				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h2 clas="text-center" id="pvp-aggresion">PVP aggresion</h2></div>
+				<app-title-h2 name="Logi"></app-title-h2>
+				<app-title-h2 name="PVP aggresion"></app-title-h2>
 
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h1 clas="text-center" id="travel" >Travel</h1></div>
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4"><h2 clas="text-center" id="exploring">Exploring</h2></div>
