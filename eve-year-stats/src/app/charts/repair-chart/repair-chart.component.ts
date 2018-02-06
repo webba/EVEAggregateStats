@@ -10,71 +10,70 @@ import { AuthService } from '../../auth/auth.service';
 export class RepairChartComponent implements OnInit {
   @Input() label: string;
   @Input() data: Object;
-  @Input() datapoints: string;
+  @Input() datapoints: RepairChartDatapoint[];
 
   private chart: Chart;
   private lastData: Object;
 
   constructor(private _authService: AuthService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
   private getDataPoint(key: string): number {
-		if (!this.data) {
-			return 0;
-		} else if (!this.data[key]) {
-			return 0;
-		}
-		return this.data[key];
-	}
+    if (!this.data) {
+      return 0;
+    } else if (!this.data[key]) {
+      return 0;
+    }
+    return this.data[key];
+  }
 
-	public getChart(): void {
-		if (!this.chart) {
-      //console.log(this.data);
-      var dataset = JSON.parse(this.datapoints)
-      var tdata = [];
-      var tlabel = [];
-      dataset.forEach(element => {
-        tdata.push(this.getDataPoint(element.stat));
-        tlabel.push(element.name);
+  public getChart(): void {
+    if (!this.chart) {
+      const data: number[] = [];
+      const labels = [];
+      this.datapoints.forEach(element => {
+        data.push(this.getDataPoint(element.stat));
+        labels.push(element.name);
       });
-      console.log(tdata)
-      console.log(tlabel)
 
-			this.chart = new Chart(this.label, {
-				type: 'horizontalBar',
-				options: {
-					responsive: true,
-					scales: {
-						xAxes: [{
-							stacked: false
-						}],
-						yAxes: [{
-							stacked: false
-						}]
-					}
-				},
-				data: {
-					datasets: [{
-            labels: ["test1","test2"],
-						label: 'Shots',
-						backgroundColor: 'rgba(255, 0, 0, 1)',
-						data: [10,30]
-					}]
-				}
-			});
-		} else if (this.lastData !== this.data && typeof this.chart.datasets !== 'undefined') {
-			//console.log(this.chart.datasets);
-			//console.log(this.data);
-			var tdata = [];
-      var tlabel = [];
-      dataset.forEach(element => {
-        tdata.push(this.getDataPoint(element.stat));
-        tlabel.push(element.name);
+      this.chart = new Chart(this.label, {
+        type: 'horizontalBar',
+        options: {
+          responsive: true,
+          scales: {
+            xAxes: [{
+              stacked: false
+            }],
+            yAxes: [{
+              stacked: false
+            }]
+          },
+          legend: {
+            display: false
+          }
+        },
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Shots',
+            backgroundColor: 'rgba(255, 0, 0, 1)',
+            data: data
+          }]
+        }
       });
-      this.chart.datasets[0].data = [10,30]
-			this.chart.update();
-		}
-	}
+    } else if (this.lastData !== this.data && typeof this.chart.datasets !== 'undefined') {
+      const data: number[] = [];
+      this.datapoints.forEach(element => {
+        data.push(this.getDataPoint(element.stat));
+      });
+      this.chart.datasets[0].data = data;
+      this.chart.update();
+    }
+  }
+}
 
+export class RepairChartDatapoint {
+  public name: string;
+  public stat: string;
 }

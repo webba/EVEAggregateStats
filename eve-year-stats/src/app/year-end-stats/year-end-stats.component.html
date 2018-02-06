@@ -321,52 +321,52 @@
 					<div class="col-md-3">
 						<div class="row card box-shadow px-1 mx-1">
 							<div class="col-md-12">
-									<div class="row">
-										<div class="col-md-12 text-center">
-											<img src="https://imageserver.eveonline.com/Type/27930_64.png" alt="Tackle">
-										</div>
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img src="https://imageserver.eveonline.com/Type/27930_64.png" alt="Tackle">
 									</div>
-									<div class="row">
-										<div class="col-md-12 text-center p-2">Repaired
-											<app-character-stat [value]="stat.combat.repair_hull_remote_amount"></app-character-stat></div>
-									</div>
-									<div class="row">
-										<div class="col-md-12 text-center p-2">Recived
-											<app-character-stat [value]="stat.combat.repair_hull_by_remote_amount"></app-character-stat></div>
-									</div>
-									<div class="row">
-										<div class="col-md-12 text-center p-2">Self repair
-											<app-character-stat [value]="stat.combat.repair_hull_self_amount"></app-character-stat></div>
-									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Repaired
+										<app-character-stat [value]="stat.combat.repair_hull_remote_amount"></app-character-stat></div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Recived
+										<app-character-stat [value]="stat.combat.repair_hull_by_remote_amount"></app-character-stat></div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Self repair
+										<app-character-stat [value]="stat.combat.repair_hull_self_amount"></app-character-stat></div>
 								</div>
 							</div>
 						</div>
-						<!-- cap-->
-						<div class="col-md-3 ">
-							<div class="row card box-shadow px-1 mx-1">
-								<div class="col-md-12">
-									<div class="row">
-										<div class="col-md-12 text-center">
-											<img src="https://imageserver.eveonline.com/Type/41566_64.png" alt="Tackle">
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12 text-center p-2">Repaired
-											<app-character-stat [value]="stat.combat.repair_capacitor_remote_amount"></app-character-stat></div>
-									</div>
-									<div class="row">
-										<div class="col-md-12 text-center p-2">Recived
-											<app-character-stat [value]="stat.combat.repair_capacitor_by_remote_amount"></app-character-stat></div>
-									</div>
-									<div class="row">
-										<div class="col-md-12 text-center p-2">Self repair
-											<app-character-stat [value]="stat.combat.repair_capacitor_self_amount"></app-character-stat></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<app-repair-chart [label]="'repair-chart-' + stat.year" [data]="stat.combat" datapoints='[{"name":"repair","stat":"repair_capacitor_self_amount"},{"name":"repair2","stat":"repair_capacitor_self_amount"}]'></app-repair-chart>
 					</div>
+					<!-- cap-->
+					<div class="col-md-3 ">
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<img src="https://imageserver.eveonline.com/Type/41566_64.png" alt="Tackle">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Repaired
+										<app-character-stat [value]="stat.combat.repair_capacitor_remote_amount"></app-character-stat></div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Recived
+										<app-character-stat [value]="stat.combat.repair_capacitor_by_remote_amount"></app-character-stat></div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 text-center p-2">Self repair
+										<app-character-stat [value]="stat.combat.repair_capacitor_self_amount"></app-character-stat></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<app-repair-chart [label]="'repair-chart-' + stat.year" [data]="stat.combat" [datapoints]='[{"name":"repair","stat":"repair_capacitor_self_amount"},{"name":"repair2","stat":"repair_capacitor_self_amount"}]'></app-repair-chart>
+				</div>
 				<app-title-h2 name="Timers"></app-title-h2>
 				<!--Timers-->
 				<div class="row mb-5">
