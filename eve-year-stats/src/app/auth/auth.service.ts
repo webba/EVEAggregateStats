@@ -224,6 +224,7 @@ export class AuthService {
 				return this.characters[i];
 			}
 		}
+		return null;
 	}
 
 	public getAggregateStats(): Object[] {
