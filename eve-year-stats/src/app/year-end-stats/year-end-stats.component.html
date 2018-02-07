@@ -2,10 +2,7 @@
 	<ng-template ngFor let-stat [ngForOf]="getSelectedStats()">
 		<ngb-tab title="{{ stat.year }}">
 			<ng-template ngbTabContent>
-				<h2> Your stats in {{ stat.year }}</h2>
 				<app-title-h1 name="PVP"></app-title-h1>
-
-
 				<div *ngIf="stat.combat" class="row justify-content-md-center">
 					<div class="col-md-3 ">
 						<div class="row mb-2">
