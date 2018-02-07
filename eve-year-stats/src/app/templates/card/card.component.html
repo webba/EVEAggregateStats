@@ -1,0 +1,19 @@
+<div class="row card box-shadow px-1 mx-1">
+	<div class="col-md-12">
+		<div *ngIf="img !== undefined " class="row" >
+			<div class="col-md-12 text-center">
+				<img  [attr.src]="img" alt="Directional Scan">
+			</div>
+		</div>
+		<div *ngIf="title !== undefined " class="row" >
+				<div class="col-md-12 text-center">
+					<h4>{{ title }}</h4>
+				</div>
+			</div>
+		<div class="row" *ngFor="let data of data">
+			<div class="col-md-12 text-center p-2">{{data.title}}
+				<b>{{getDataPoint(data.stat)}}</b>
+			</div>
+		</div>
+	</div>
+</div>

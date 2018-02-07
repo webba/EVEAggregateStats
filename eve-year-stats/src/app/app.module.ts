@@ -19,6 +19,7 @@ import { Damage2ChartComponent } from './charts/damage2-chart/damage2-chart.comp
 import { TitleH1Component } from './templates/title-h1/title-h1.component';
 import { TitleH2Component } from './templates/title-h1/title-h2.component';
 import { RepairChartComponent } from './charts/repair-chart/repair-chart.component';
+import { CardComponent } from './templates/card/card.component';
 const appRoutes: Routes = [
 	{ path: 'oauth-callback', component: OAuthCallbackComponent },
 	{
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
 		TitleH1Component,
 		TitleH2Component,
 		RepairChartComponent,
+		CardComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -632,10 +632,23 @@
 					</div>
 				</div>
 
-				<app-title-h1 name="Chat"></app-title-h1>
-				
+				<app-title-h1 name="Social"></app-title-h1>
+				<app-title-h2 name="Chat"></app-title-h2>
+				<div class="row">
+					<div class="col-md-4">
+						<app-card title="Need title" [rdata]="stat" data='[{"title":"Allaince","stat":"social.chat_messages_alliance"},{"title":"Corporation","stat":"social.chat_messages_corporation"},{"title":"Fleet","stat":"social.chat_messages_fleet"}]'></app-card>
+					</div>
+					<div class="col-md-4">
+						<app-card title="Need title" [rdata]="stat" data='[{"title":"Constellation","stat":"social.chat_messages_constellation"},{"title":"Region","stat":".social.chat_messages_region"},{"title":"Solarsystem","stat":"social.chat_messages_solarsystem"}]'></app-card>
+					</div>
+					<div class="col-md-4">
+						<app-card title="Need title" [rdata]="stat" data='[{"title":"Faction warfare","stat":"social.chat_messages_warfaction"},{"title":"Total charaters in chat","stat":"social.chat_total_message_length"}]'></app-card>
+					</div>
+				</div>
+
 
 				<app-title-h1 name="Iskies"></app-title-h1>
+
 				<app-title-h1 name="Pve"></app-title-h1>
 				<app-title-h1 name="Mining"></app-title-h1>
 				<app-title-h1 name="Production"></app-title-h1>
