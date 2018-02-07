@@ -633,6 +633,20 @@
 				</div>
 
 				<app-title-h1 name="Social"></app-title-h1>
+				<div class="row">
+					<!-- Fleet -->
+					<div class="col-md-4">
+						<app-card title="Fleet" [rdata]="stat" data='[{"title":"Fleet joins","stat":"social.fleet_joins"},{"title":"Broadcasts","stat":"social.fleet_broadcasts"}]'></app-card>
+					</div>
+					<!-- Mail -->
+					<div class="col-md-4">
+						<app-card title="Mail" [rdata]="stat" data='[{"title":"Mails sent","stat":"social.chat_messages_constellation"},{"title":"Mails received","stat":".social.mails_received"}]'></app-card>
+					</div>
+					<!-- Other -->
+					<div class="col-md-4">
+						<app-card title="Other" [rdata]="stat" data='[{"title":"Notes created","stat":"social.add_note"},{"title":"Trades","stat":"social.direct_trades"},{"title":"Calendar events created","stat":"social.calendar_event_created"}]'></app-card>
+					</div>
+				</div>
 				<app-title-h2 name="Chat"></app-title-h2>
 				<div class="row">
 					<div class="col-md-4">
@@ -648,7 +662,29 @@
 
 
 				<app-title-h1 name="Iskies"></app-title-h1>
+				<div class="row"  style="font-size:20px">
+					<div class="col-md-6 text-center text-success">You made
+						<br>
+						<app-character-stat [value]="stat.isk.in"></app-character-stat> <b>Isk</b>
+					</div>
+					<div class="col-md-6 text-center text-danger">You spent
+						<br>
+						<app-character-stat [value]="stat.isk.out"></app-character-stat> <b>Isk</b>
+					</div>
+				</div>
+				<div class="row"  style="font-size:25px">
+					<div class="col-md-12 text-center">
+						<div *ngIf="stat.isk.in+stat.isk.out>=0" class="text-success">You made
+							<br>
+							<app-character-stat [value]="stat.isk.in+stat.isk.out"></app-character-stat>
+						</div>
+						<div *ngIf="stat.isk.in+stat.isk.out<0" class="text-danger">You lost
+							<br>
+							<app-character-stat [value]="stat.isk.in+stat.isk.out"></app-character-stat> <b>Isk</b>
+						</div>
 
+					</div>
+				</div>
 				<app-title-h1 name="Pve"></app-title-h1>
 				<app-title-h1 name="Mining"></app-title-h1>
 				<app-title-h1 name="Production"></app-title-h1>
