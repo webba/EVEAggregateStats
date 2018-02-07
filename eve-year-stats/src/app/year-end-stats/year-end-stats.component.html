@@ -41,19 +41,19 @@
 									</div>
 									<div class="col-md-6 text-center">High sec</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.pod_high_sec"></app-character-stat>
+										<app-character-stat [value]="stat.combat.kills_pod_high_sec"></app-character-stat>
 									</div>
 									<div class="col-md-6 text-center">Low sec</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.pod_low_sec"></app-character-stat>
+										<app-character-stat [value]="stat.combat.kills_pod_low_sec"></app-character-stat>
 									</div>
 									<div class="col-md-6 text-center">Null sec</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.pod_null_sec"></app-character-stat>
+										<app-character-stat [value]="stat.combat.kills_pod_null_sec"></app-character-stat>
 									</div>
 									<div class="col-md-6 text-center">Wh</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.pod_wormhole"></app-character-stat>
+										<app-character-stat [value]="stat.combat.kills_pod_wormhole"></app-character-stat>
 									</div>
 								</div>
 							</div>
@@ -71,19 +71,19 @@
 									</div>
 									<div class="col-md-6 text-center">High sec</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.kills_high_sec"></app-character-stat>
+										<app-character-stat [value]="stat.combat.deaths_high_sec"></app-character-stat>
 									</div>
 									<div class="col-md-6 text-center">Low sec</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.kills_low_sec"></app-character-stat>
+										<app-character-stat [value]="stat.combat.deaths_low_sec"></app-character-stat>
 									</div>
 									<div class="col-md-6 text-center">Null sec</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.kills_null_sec"></app-character-stat>
+										<app-character-stat [value]="stat.combat.deaths_null_sec"></app-character-stat>
 									</div>
 									<div class="col-md-6 text-center">Wh</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.kills_wormhole"></app-character-stat>
+										<app-character-stat [value]="stat.combat.deaths_wormhole"></app-character-stat>
 									</div>
 								</div>
 							</div>
@@ -92,23 +92,23 @@
 							<div class="col-md-12 card box-shadow py-md-2">
 								<div class="row">
 									<div class="col-md-12">
-										<h4 class="text-center">You were</h4>
+										<h4 class="text-center">You were podded</h4>
 									</div>
 									<div class="col-md-6 text-center">High sec</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.pod_high_sec"></app-character-stat>
+										<app-character-stat [value]="stat.combat.deaths_pod_high_sec"></app-character-stat>
 									</div>
 									<div class="col-md-6 text-center">Low sec</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.pod_low_sec"></app-character-stat>
+										<app-character-stat [value]="stat.combat.deaths_pod_low_sec"></app-character-stat>
 									</div>
 									<div class="col-md-6 text-center">Null sec</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.pod_null_sec"></app-character-stat>
+										<app-character-stat [value]="stat.combat.deaths_pod_null_sec"></app-character-stat>
 									</div>
 									<div class="col-md-6 text-center">Wh</div>
 									<div class="col-md-6  text-center">
-										<app-character-stat [value]="stat.combat.pod_wormhole"></app-character-stat>
+										<app-character-stat [value]="stat.combat.deaths_pod_wormhole"></app-character-stat>
 									</div>
 								</div>
 							</div>
@@ -119,48 +119,6 @@
 							<app-character-stat [value]="stat.combat.kills_assists"></app-character-stat> kills</h4>
 					</div>
 				</div>
-				<!--
-				<div class="row border-bottom pb-3 mb-4">
-					
-					<div class="col-md-12">
-						<app-combat-damage-component title="Energy Turret Damage" [toAmount]="stat.combat.damage_to_players_energy_amount" [toShots]="stat.combat.damage_to_players_energy_num_shots"
-						 [fromAmount]="stat.combat.damage_from_players_energy_amount" [fromShots]="stat.combat.damage_from_players_energy_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Hybrid Turret Damage" [toAmount]="stat.combat.damage_to_players_hybrid_amount" [toShots]="stat.combat.damage_to_players_hybrid_num_shots"
-						 [fromAmount]="stat.combat.damage_from_players_hybrid_amount" [fromShots]="stat.combat.damage_from_players_hybrid_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Missile Damage" [toAmount]="stat.combat.damage_to_players_missile_amount" [toShots]="stat.combat.damage_to_players_missile_num_shots"
-						 [fromAmount]="stat.combat.damage_from_players_missile_amount" [fromShots]="stat.combat.damage_from_players_missile_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Projectile Turret Damage" [toAmount]="stat.combat.damage_to_players_projectile_amount"
-						 [toShots]="stat.combat.damage_to_players_projectile_num_shots" [fromAmount]="stat.combat.damage_from_players_projectile_amount"
-						 [fromShots]="stat.combat.damage_from_players_projectile_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Drone Damage" [toAmount]="stat.combat.damage_to_players_combat_drone_amount" [toShots]="stat.combat.damage_to_players_combat_drone_num_shots"
-						 [fromAmount]="stat.combat.damage_from_players_combat_drone_amount" [fromShots]="stat.combat.damage_from_players_combat_drone_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Fighter Damage" [toAmount]="stat.combat.damage_to_players_fighter_drone_amount" [toShots]="stat.combat.damage_to_players_fighter_drone_num_shots"
-						 [fromAmount]="stat.combat.damage_from_players_fighter_drone_amount" [fromShots]="stat.combat.damage_from_players_fighter_drone_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Fighter Bomber Damage" [toAmount]="stat.combat.damage_to_players_fighter_bomber_amount"
-						 [toShots]="stat.combat.damage_to_players_fighter_bomber_num_shots" [fromAmount]="stat.combat.damage_from_players_fighter_bomber_amount"
-						 [fromShots]="stat.combat.damage_from_players_fighter_bomber_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Bomb Damage" [toAmount]="stat.combat.damage_to_players_bomb_amount" [toShots]="stat.combat.damage_to_players_bomb_num_shots"
-						 [fromAmount]="stat.combat.damage_from_players_bomb_amount" [fromShots]="stat.combat.damage_from_players_bomb_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Smart Bomb Damage" [toAmount]="stat.combat.damage_to_players_smart_bomb_amount" [toShots]="stat.combat.damage_to_players_smart_bomb_num_shots"
-						 [fromAmount]="stat.combat.damage_from_players_smart_bomb_amount" [fromShots]="stat.combat.damage_from_players_smart_bomb_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Super Weapon Damage" [toAmount]="stat.combat.damage_to_players_super_amount" [toShots]="stat.combat.damage_to_players_super_num_shots"
-						 [fromAmount]="stat.combat.damage_from_players_super_amount" [fromShots]="stat.combat.damage_from_players_super_num_shots">
-						</app-combat-damage-component>
-						<app-combat-damage-component title="Structure Damage" [toAmount]="stat.combat.damage_to_structures_amount" [toShots]="stat.combat.damage_to_structures_num_shots"
-						 [fromAmount]="stat.combat.damage_from_structures_amount" [fromShots]="stat.combat.damage_from_structures_num_shots">
-						</app-combat-damage-component>
-					</div>
-				</div>
-				-->
 				<app-title-h2 name="Modules"></app-title-h2>
 				<div class="row mb-5">
 					<div class="col-md-6">
@@ -378,7 +336,20 @@
 							</div>
 						</div>
 					</div>
-					<app-repair-chart [label]="'repair-chart-' + stat.year" [data]="stat.combat" [datapoints]='[{"name":"repair","stat":"repair_capacitor_self_amount"},{"name":"repair2","stat":"repair_capacitor_self_amount"}]'></app-repair-chart>
+				</div>
+				<div class="row">
+					<div class="col-md-4 text-center">
+						<h5>Self repair</h5>
+						<app-repair-chart [label]="'self-repair-chart-' + stat.year" [data]="stat.combat" [datapoints]='[{"name":"Shield","stat":"repair_shield_self_amount"},{"name":"Armor","stat":"repair_armor_self_amount"},{"name":"Hull","stat":"repair_hull_self_amount"}]'></app-repair-chart>
+					</div>
+					<div class="col-md-4 text-center">
+						<h5>Remote</h5>
+						<app-repair-chart [label]="'remote-repair-chart-' + stat.year" [data]="stat.combat" [datapoints]='[{"name":"Shield","stat":"repair_shield_remote_amount"},{"name":"Armor","stat":"repair_armor_remote_amount"},{"name":"Hull","stat":"repair_hull_remote_amount"}]'></app-repair-chart>
+					</div>
+					<div class="col-md-4 text-center">
+						<h5>Recived</h5>
+						<app-repair-chart [label]="'recived-repair-chart-' + stat.year" [data]="stat.combat" [datapoints]='[{"name":"Shield","stat":"repair_shield_by_remote_amount"},{"name":"Armor","stat":"repair_armor_by_remote_amount"},{"name":"Hull","stat":"repair_hull_by_remote_amount"}]'></app-repair-chart>
+					</div>
 				</div>
 				<app-title-h2 name="Timers"></app-title-h2>
 				<!--Timers-->

@@ -38,27 +38,19 @@ export class RepairChartComponent implements OnInit {
 			});
 
 			this.chart = new Chart(this.label, {
-				type: 'horizontalBar',
+				type: 'doughnut',
 				options: {
 					responsive: true,
-					scales: {
-						xAxes: [{
-							stacked: false
-						}],
-						yAxes: [{
-							stacked: false
-						}]
-					},
 					legend: {
-						display: false
+						display: true
 					}
 				},
 				data: {
 					labels: labels,
 					datasets: [{
 						label: 'Shots',
-						backgroundColor: 'rgba(255, 0, 0, 1)',
-						data: data
+						data: data,
+						backgroundColor: [ 'rgb(54, 162, 235)', 'rgb(255, 99, 132)', 'rgb(255, 205, 86)']
 					}]
 				}
 			});
