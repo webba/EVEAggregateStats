@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AuthService, CharacterData } from '../auth/auth.service';
 import 'rxjs/add/operator/switchMap';
 import { NgClass } from '@angular/common';
+import { ESIProperties } from './esi-spec';
 
 @Component({
 	selector: 'app-year-end-stats',
@@ -12,13 +13,16 @@ import { NgClass } from '@angular/common';
 })
 
 export class YearEndStatsComponent implements OnInit {
+	public esiPropeties = ESIProperties;
+
 	constructor(
 		private _authService: AuthService,
-		private _route: ActivatedRoute
+		private _route: ActivatedRoute,
 	) {
 	 }
 
 	ngOnInit() {
+		console.log(ESIProperties);
 	}
 
 	public getSelectedCharacter(): CharacterData {
@@ -31,5 +35,10 @@ export class YearEndStatsComponent implements OnInit {
 
 	public hasSelectedCharacter(): Boolean {
 		return this._authService.getSelectedCharacter() != null;
+	}
+
+	public getKeys(obj: Object): String[] {
+		console.log(obj, Object.keys(obj));
+		return Object.keys(obj);
 	}
 }

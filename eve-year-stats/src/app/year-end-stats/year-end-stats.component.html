@@ -718,28 +718,6 @@
 									<app-character-stat [value]="stat.isk.in+stat.isk.out" unit="ISK"></app-character-stat>
 								</div>
 
-							</div>
-						</div>
-						<app-title-h1 name="Pve"></app-title-h1>
-						<!-- PVE -->
-						<div class="row">
-							<!-- Fleet -->
-							<div class="col-md-4">
-								<app-card title="Missions" [rdata]="stat" data='[{"title":"Missions completed","stat":"pve.missions_succeeded"},{"title":"Agent missions completed","stat":"pve.dungeons_completed_agent"},{"title":"DED missions completed","stat":"pve.dungeons_completed_agent"}]'></app-card>
-							</div>
-							<!-- Combat -->
-							<div class="col-md-4">
-								<app-card title="Combat" [rdata]="stat" data='[{"title":"Damage from npcs","stat":"combat.damage_from_np_cs_amount"},{"title":"Npcs have shot you","stat":"combat.damage_from_np_cs_num_shots","suffix":"times"}]'></app-card>
-							</div>
-							<!-- Other -->
-							<div class="col-md-4">
-								<app-card title="Other" [rdata]="stat" data='[{"title":"Notes created","stat":"social.add_note"},{"title":"Trades","stat":"social.direct_trades"},{"title":"Calendar events created","stat":"social.calendar_event_created"}]'></app-card>
-							</div>
-						</div>
-
-						<app-title-h1 name="Mining"></app-title-h1>
-						<app-title-h1 name="Production"></app-title-h1>
-						======= >>>>>>> 5af06c75a7823b27f48f006082d9091c31e9bb85
 
 					</ng-template>
 				</ngb-tab>
@@ -4281,140 +4259,18 @@
 						<div class=" row justify-content-md-center border-bottom pb-3 mb-4">
 							<h1 clas="text-center" id="travel">travel</h1>
 						</div>
-						<div *ngIf="stat.travel" class="row justify-content-md-center">
+						<div *ngIf="stat[property]" class="row justify-content-md-center">
 							<table class="table table-dark">
-								<tr>
-									<td>acceleration_gate_activations</td>
+								<tr *ngFor="let prop of getKeys(esiPropeties[property].properties)">
+									<td>{{ prop }}</td>
 									<td>
-										<app-character-stat [value]="stat.travel.acceleration_gate_activations"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>align_to</td>
-									<td>
-										<app-character-stat [value]="stat.travel.align_to"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>distance_warped_high_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.distance_warped_high_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>distance_warped_low_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.distance_warped_low_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>distance_warped_null_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.distance_warped_null_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>distance_warped_wormhole</td>
-									<td>
-										<app-character-stat [value]="stat.travel.distance_warped_wormhole"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>docks_high_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.docks_high_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>docks_low_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.docks_low_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>docks_null_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.docks_null_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>jumps_stargate_high_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.jumps_stargate_high_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>jumps_stargate_low_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.jumps_stargate_low_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>jumps_stargate_null_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.jumps_stargate_null_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>jumps_wormhole</td>
-									<td>
-										<app-character-stat [value]="stat.travel.jumps_wormhole"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>warps_high_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.warps_high_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>warps_low_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.warps_low_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>warps_null_sec</td>
-									<td>
-										<app-character-stat [value]="stat.travel.warps_null_sec"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>warps_to_bookmark</td>
-									<td>
-										<app-character-stat [value]="stat.travel.warps_to_bookmark"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>warps_to_celestial</td>
-									<td>
-										<app-character-stat [value]="stat.travel.warps_to_celestial"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>warps_to_fleet_member</td>
-									<td>
-										<app-character-stat [value]="stat.travel.warps_to_fleet_member"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>warps_to_scan_result</td>
-									<td>
-										<app-character-stat [value]="stat.travel.warps_to_scan_result"></app-character-stat>
-									</td>
-								</tr>
-								<tr>
-									<td>warps_wormhole</td>
-									<td>
-										<app-character-stat [value]="stat.travel.warps_wormhole"></app-character-stat>
+										<app-character-stat [value]="stat[property][prop]"></app-character-stat>
 									</td>
 								</tr>
 							</table>
 						</div>
-						<!-- end -->
 					</ng-template>
 				</ngb-tab>
-				>>>>>>> 5af06c75a7823b27f48f006082d9091c31e9bb85
 			</ng-template>
 		</ngb-tabset>
 	</div>
