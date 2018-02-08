@@ -687,7 +687,7 @@
 								</div>
 							</div>
 						</div>
-						<app-title-h1 name="Pve"></app-title-h1>
+						<app-title-h1 name="PVE"></app-title-h1>
 						<!-- PVE -->
 						<div class="row">
 							<!-- Fleet -->
@@ -704,11 +704,26 @@
 							</div>
 						</div>
 						<app-title-h1 name="Mining"></app-title-h1>
+						<!-- Mining -->
+						<div class="row">
+								<!-- Mining -->
+								<div class="col-md-4">
+									<app-card title="Gas harvested" [rdata]="stat" data='[{"title":"","stat":"mining.ore_harvestable_cloud"}]'></app-card>
+								</div>
+								<!-- Combat -->
+								<div class="col-md-4">
+									<app-card title="Combat" [rdata]="stat" data='[{"title":"Damage from npcs","stat":"combat.damage_from_np_cs_amount"},{"title":"Npcs have shot you","stat":"combat.damage_from_np_cs_num_shots","suffix":"times"}]'></app-card>
+								</div>
+								<!-- Other -->
+								<div class="col-md-4">
+									<app-card title="Other" [rdata]="stat" data='[{"title":"Notes created","stat":"social.add_note"},{"title":"Trades","stat":"social.direct_trades"},{"title":"Calendar events created","stat":"social.calendar_event_created"}]'></app-card>
+								</div>
+							</div>
 						<app-title-h1 name="Production"></app-title-h1>
 					</ng-template>
 				</ngb-tab>
 			</ng-template>
-
+			<!-- Full stats -->
 			<ngb-tab *ngFor="let stat of getSelectedStats()" title="{{ stat.year }} Full">
 				<ng-template ngbTabContent>
 					<ng-template ngFor let-property [ngForOf]="getKeys(esiPropeties)">

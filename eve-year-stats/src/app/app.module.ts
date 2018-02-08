@@ -21,6 +21,7 @@ import { TitleH2Component } from './templates/title-h1/title-h2.component';
 import { RepairChartComponent } from './charts/repair-chart/repair-chart.component';
 import { CardComponent } from './templates/card/card.component';
 import { StatsNavbarComponent } from './stats-navbar/stats-navbar.component';
+import { MiningComponent } from './charts/mining/mining.component';
 const appRoutes: Routes = [
 	{ path: 'oauth-callback', component: OAuthCallbackComponent },
 	{
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
 		RepairChartComponent,
 		CardComponent,
 		StatsNavbarComponent,
+		MiningComponent,
 	],
 	imports: [
 		BrowserModule,
