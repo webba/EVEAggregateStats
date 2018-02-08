@@ -17,6 +17,7 @@ export class StatsNavbarComponent {
 	@Input() parts: StatsNavbarPart[];
 
 	public scrollTo(elem: ScrollTitle): void {
+		console.log(elem);
 		elem.scrollTo();
 	}
 }

@@ -24,3 +24,11 @@
 .timer.timer-yellow{
     filter: url(/assets/img/filters.svg#yellow);
 }
+
+.bd-toc {
+	position: webkit sticky;
+	position: fixed;
+	top: 4rem;
+	right:0rem;
+	overflow-y: auto;
+}

@@ -1,20 +1,18 @@
 <nav class="navbar navbar-inverse navbar-expand-md navbar-dark bg-dark fixed-top">
 	<a class="navbar-brand" routerLink="/">EVE Stats</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
-		aria-expanded="false" aria-label="Toggle navigation">
+	 aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 		<ul class="navbar-nav mr-auto">
 			<li *ngFor="let character of getCharacters()" class="nav-item link">
-				<a *ngIf="character.Selected === true && !getAggregate()" 
-					class="nav-link user active" (click)="setSelectedCharacter(character.CharacterID)">
+				<a *ngIf="character.Selected === true && !getAggregate()" class="nav-link user active" (click)="setSelectedCharacter(character.CharacterID)">
 					<img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
 					<span class="sr-only">(current)</span>
 				</a>
-				<a *ngIf="character.Selected === false || getAggregate()" class="nav-link user link"
-					(click)="setSelectedCharacter(character.CharacterID)">
+				<a *ngIf="character.Selected === false || getAggregate()" class="nav-link user link" (click)="setSelectedCharacter(character.CharacterID)">
 					<img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
 				</a>
 			</li>
@@ -37,5 +35,7 @@
 	</div>
 </nav>
 <main role="main" class="container">
-	<app-year-end-stats></app-year-end-stats>
+	
+			<app-year-end-stats></app-year-end-stats>
+		
 </main>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { AuthService, CharacterData } from '../auth/auth.service';
 import { Observable } from 'rxjs/Observable';
@@ -10,6 +10,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class CharacterNavigationComponent implements OnInit {
 	private aggregate = false;
+
 
 	constructor(
 		private _authService: AuthService,

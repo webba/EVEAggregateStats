@@ -691,21 +691,23 @@
 				<app-title-h1 #pve name="Pve"></app-title-h1>
 				<app-title-h1 #mining name="Mining"></app-title-h1>
 				<app-title-h1 #production name="Production"></app-title-h1>
-
-				<app-stats-navbar [parts]="[
-					{Title: 'PVP', Elem: pvp}, 
-					{Title: 'Modules', Elem: modules}, 
-					{Title: 'Logi', Elem: logi}, 
-					{Title: 'Timers', Elem: timers},  
-					{Title: 'Travel', Elem: travel}, 
-					{Title: 'Exploring', Elem: exploring}, 
-					{Title: 'Social', Elem: social}, 
-					{Title: 'Chat', Elem: chat}, 
-					{Title: 'Isk', Elem: isk}, 
-					{Title: 'PVE', Elem: pve}, 
-					{Title: 'Mining', Elem: mining}, 
-					{Title: 'Production', Elem: production}
-				]"></app-stats-navbar>
+				<div class="d-none d-xl-block col-xl-2  bd-toc">
+					<app-stats-navbar [parts]="[
+														{Title: 'PVP', Elem: pvp}, 
+														{Title: 'Modules', Elem: modules}, 
+														{Title: 'Logi', Elem: logi}, 
+														{Title: 'Timers', Elem: timers},  
+														{Title: 'Travel', Elem: travel}, 
+														{Title: 'Exploring', Elem: exploring}, 
+														{Title: 'Social', Elem: social}, 
+														{Title: 'Chat', Elem: chat}, 
+														{Title: 'Isk', Elem: isk}, 
+														{Title: 'PVE', Elem: pve}, 
+														{Title: 'Mining', Elem: mining}, 
+														{Title: 'Production', Elem: production}
+													]">
+					</app-stats-navbar>
+				</div>
 			</ng-template>
 		</ngb-tab>
 	</ng-template>
