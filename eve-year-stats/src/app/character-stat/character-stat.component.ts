@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { get as _get } from 'lodash';
 
 @Component({
 	selector: 'app-character-stat',
@@ -7,9 +8,17 @@ import { Component, Input } from '@angular/core';
 })
 export class CharacterStatComponent {
 	@Input() label: string;
+	@Input() path: string;
 	@Input() value: Object;
-	@Input() unit: Object;
+	@Input() unit: string;
 
 	constructor() { }
 
+	public getValue(): number {
+		const val = _get(this.value, this.path, null);
+		if (val === null) {
+			return 0;
+		}
+		return val;
+	}
 }

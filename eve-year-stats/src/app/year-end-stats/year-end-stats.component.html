@@ -16,19 +16,19 @@
 											</div>
 											<div class="col-md-6 text-center">High sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.kills_high_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.kills_high_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Low sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.kills_low_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.kills_low_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Null sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.kills_null_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.kills_null_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Wh</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.kills_wormhole"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.kills_wormhole"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -41,19 +41,19 @@
 											</div>
 											<div class="col-md-6 text-center">High sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.kills_pod_high_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.kills_pod_high_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Low sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.kills_pod_low_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.kills_pod_low_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Null sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.kills_pod_null_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.kills_pod_null_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Wh</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.kills_pod_wormhole"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.kills_pod_wormhole"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -71,19 +71,19 @@
 											</div>
 											<div class="col-md-6 text-center">High sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.deaths_high_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.deaths_high_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Low sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.deaths_low_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.deaths_low_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Null sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.deaths_null_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.deaths_null_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Wh</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.deaths_wormhole"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.deaths_wormhole"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -96,19 +96,19 @@
 											</div>
 											<div class="col-md-6 text-center">High sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.deaths_pod_high_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.deaths_pod_high_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Low sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.deaths_pod_low_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.deaths_pod_low_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Null sec</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.deaths_pod_null_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.deaths_pod_null_sec"></app-character-stat>
 											</div>
 											<div class="col-md-6 text-center">Wh</div>
 											<div class="col-md-6  text-center">
-												<app-character-stat [value]="stat.combat.deaths_pod_wormhole"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.deaths_pod_wormhole"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -116,7 +116,7 @@
 							</div>
 							<div class="col-md-12">
 								<h4 class="text-center">You assisted on
-									<app-character-stat [value]="stat.combat.kills_assists"></app-character-stat> kills</h4>
+									<app-character-stat [value]="stat" path="combat.kills_assists"></app-character-stat> kills</h4>
 							</div>
 						</div>
 						<app-title-h2 name="Modules"></app-title-h2>
@@ -139,15 +139,15 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Scramed
-												<app-character-stat [value]="stat.combat.warp_scramble_pc"></app-character-stat> players</div>
+												<app-character-stat [value]="stat" path="combat.warp_scramble_pc"></app-character-stat> players</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Scramed
-												<app-character-stat [value]="stat.combat.warp_scrambledby_pc"></app-character-stat> times</div>
+												<app-character-stat [value]="stat" path="combat.warp_scrambledby_pc"></app-character-stat> times</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Scramed
-												<app-character-stat [value]="stat.combat.warp_scrambledby_npc"></app-character-stat> times by npc</div>
+												<app-character-stat [value]="stat" path="combat.warp_scrambledby_npc"></app-character-stat> times by npc</div>
 										</div>
 									</div>
 								</div>
@@ -162,15 +162,15 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Webbed
-												<app-character-stat [value]="stat.combat.webifying_pc"></app-character-stat> players</div>
+												<app-character-stat [value]="stat" path="combat.webifying_pc"></app-character-stat> players</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Webbed
-												<app-character-stat [value]="stat.combat.webifiedby_pc"></app-character-stat> times</div>
+												<app-character-stat [value]="stat" path="combat.webifiedby_pc"></app-character-stat> times</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Webbed
-												<app-character-stat [value]="stat.combat.webifiedby_npc"></app-character-stat> times by npc</div>
+												<app-character-stat [value]="stat" path="combat.webifiedby_npc"></app-character-stat> times by npc</div>
 										</div>
 									</div>
 								</div>
@@ -186,15 +186,15 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Cap drained
-												<app-character-stat [value]="stat.combat.cap_draining_pc"></app-character-stat> players</div>
+												<app-character-stat [value]="stat" path="combat.cap_draining_pc"></app-character-stat> players</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Cap drained
-												<app-character-stat [value]="stat.combat.cap_drainedby_pc"></app-character-stat> times</div>
+												<app-character-stat [value]="stat" path="combat.cap_drainedby_pc"></app-character-stat> times</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Cap drained
-												<app-character-stat [value]="stat.combat.cap_drainedby_npc"></app-character-stat> times by npc</div>
+												<app-character-stat [value]="stat" path="combat.cap_drainedby_npc"></app-character-stat> times by npc</div>
 										</div>
 									</div>
 								</div>
@@ -210,16 +210,16 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Self destructs
-												<app-character-stat [value]="stat.combat.self_destructs"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.self_destructs"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">overload
-												<app-character-stat [value]="stat.module.overload"></app-character-stat> times</div>
+												<app-character-stat [value]="stat" path="module.overload"></app-character-stat> times</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Links activated
-												<app-character-stat [value]="stat.module.link_weaponsc"></app-character-stat> times</div>
+												<app-character-stat [value]="stat" path="module.link_weaponsc"></app-character-stat> times</div>
 										</div>
 									</div>
 								</div>
@@ -239,17 +239,17 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Repaired
-												<app-character-stat [value]="stat.combat.repair_shield_remote_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_shield_remote_amount"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Recived
-												<app-character-stat [value]="stat.combat.repair_shield_by_remote_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_shield_by_remote_amount"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Self repair
-												<app-character-stat [value]="stat.combat.repair_shield_self_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_shield_self_amount"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -266,17 +266,17 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Repaired
-												<app-character-stat [value]="stat.combat.repair_armor_remote_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_armor_remote_amount"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Recived
-												<app-character-stat [value]="stat.combat.repair_armor_by_remote_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_armor_by_remote_amount"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Self repair
-												<app-character-stat [value]="stat.combat.repair_armor_self_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_armor_self_amount"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -293,17 +293,17 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Repaired
-												<app-character-stat [value]="stat.combat.repair_hull_remote_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_hull_remote_amount"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Recived
-												<app-character-stat [value]="stat.combat.repair_hull_by_remote_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_hull_by_remote_amount"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Self repair
-												<app-character-stat [value]="stat.combat.repair_hull_self_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_hull_self_amount"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -320,17 +320,17 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Repaired
-												<app-character-stat [value]="stat.combat.repair_capacitor_remote_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_capacitor_remote_amount"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Recived
-												<app-character-stat [value]="stat.combat.repair_capacitor_by_remote_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_capacitor_by_remote_amount"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Self repair
-												<app-character-stat [value]="stat.combat.repair_capacitor_self_amount"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.repair_capacitor_self_amount"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -365,7 +365,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Duels Requested
-												<app-character-stat [value]="stat.combat.duel_requested"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.duel_requested"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -382,7 +382,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Limited Engagement Timers
-												<app-character-stat [value]="stat.combat.engagement_register"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.engagement_register"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -401,7 +401,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">PVE Timers
-												<app-character-stat [value]="stat.combat.npc_flag_set"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.npc_flag_set"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -418,7 +418,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">PVP Timers
-												<app-character-stat [value]="stat.combat.pvp_flag_set"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.pvp_flag_set"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -435,7 +435,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Criminal Timers
-												<app-character-stat [value]="stat.combat.criminal_flag_set"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.criminal_flag_set"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -452,7 +452,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Weapons Timers
-												<app-character-stat [value]="stat.combat.weapon_flag_set"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.weapon_flag_set"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -474,22 +474,22 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">High Sec Warps
-												<app-character-stat [value]="stat.travel.warps_high_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.warps_high_sec"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Low Sec Warps
-												<app-character-stat [value]="stat.travel.warps_low_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.warps_low_sec"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Null Sec Warps
-												<app-character-stat [value]="stat.travel.warps_null_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.warps_null_sec"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Wormhole Warps
-												<app-character-stat [value]="stat.travel.warps_wormhole"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.warps_wormhole"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -506,22 +506,22 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">High Sec Warp Distance
-												<app-character-stat [value]="stat.travel.distance_warped_high_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.distance_warped_high_sec"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Low Sec Warp Distance
-												<app-character-stat [value]="stat.travel.distance_warped_low_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.distance_warped_low_sec"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Null Sec Warp Distance
-												<app-character-stat [value]="stat.travel.distance_warped_null_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.distance_warped_null_sec"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Wormhole Warp Distance
-												<app-character-stat [value]="stat.travel.distance_warped_wormhole"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.distance_warped_wormhole"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -538,22 +538,22 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">High Sec Jumps
-												<app-character-stat [value]="stat.travel.jumps_stargate_high_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.jumps_stargate_high_sec"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Low Sec Jumps
-												<app-character-stat [value]="stat.travel.jumps_stargate_low_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.jumps_stargate_low_sec"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Null Sec Jumps
-												<app-character-stat [value]="stat.travel.jumps_stargate_null_sec"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.jumps_stargate_null_sec"></app-character-stat>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Wormhole Jumps
-												<app-character-stat [value]="stat.travel.jumps_wormhole"></app-character-stat>
+												<app-character-stat [value]="stat" path="travel.jumps_wormhole"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -576,7 +576,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Directional Scans
-												<app-character-stat [value]="stat.combat.dscans"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.dscans"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -593,7 +593,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Probe Scans
-												<app-character-stat [value]="stat.combat.probe_scans"></app-character-stat>
+												<app-character-stat [value]="stat" path="combat.probe_scans"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -610,7 +610,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Probes Launched
-												<app-character-stat [value]="stat.module.activations_probe_launcher"></app-character-stat>
+												<app-character-stat [value]="stat" path="module.activations_probe_launcher"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -627,7 +627,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12 text-center p-2">Hacking Successes
-												<app-character-stat [value]="stat.industry.hacking_successes"></app-character-stat>
+												<app-character-stat [value]="stat" path="industry.hacking_successes"></app-character-stat>
 											</div>
 										</div>
 									</div>
@@ -668,22 +668,22 @@
 						<div class="row justify-content-md-center mb-5" style="font-size:20px">
 							<div class="col-md-3 text-center text-success card box-shadow flex-nowrap">You made
 								<br>
-								<app-character-stat [value]="stat.isk.in" unit="ISK"></app-character-stat>
+								<app-character-stat [value]="stat" path="isk.in" unit="ISK"></app-character-stat>
 							</div>
 							<div class="col-md-3 offset-md-1 text-center text-danger card box-shadow">You spent 
 								<br>
-								<app-character-stat [value]="stat.isk.out" unit="ISK"> ISK</app-character-stat>
+								<app-character-stat [value]="stat" path="isk.out" unit="ISK"> ISK</app-character-stat>
 							</div>
 						</div>
 						<div class="row justify-content-md-center px-1 mx-1" style="font-size:25px">
 							<div class="col-md-4 text-center card box-shadow p-1">
 								<div *ngIf="stat.isk.in+stat.isk.out>=0" class="text-success">You made
 									<br>
-									<app-character-stat [value]="stat.isk.in+stat.isk.out" unit="ISK"></app-character-stat>
+									<app-character-stat [value]="stat" path="isk.in+stat.isk.out" unit="ISK"></app-character-stat>
 								</div>
 								<div *ngIf="stat.isk.in+stat.isk.out<0" class="text-danger">You lost
 									<br>
-									<app-character-stat [value]="stat.isk.in+stat.isk.out" unit="ISK"></app-character-stat>
+									<app-character-stat [value]="stat" path="isk.in+stat.isk.out" unit="ISK"></app-character-stat>
 								</div>
 							</div>
 						</div>
@@ -720,7 +720,7 @@
 								<tr *ngFor="let prop of getKeys(esiPropeties[property].properties)">
 									<td>{{ prop }}</td>
 									<td>
-										<app-character-stat [value]="stat[property][prop]"></app-character-stat>
+										<app-character-stat [value]="stat" path="property][prop]"></app-character-stat>
 									</td>
 								</tr>
 							</table>
