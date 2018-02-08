@@ -3,7 +3,7 @@ import { ScrollTitle } from '../templates/title-h1/scrolltitle.interface';
 
 export class StatsNavbarPart {
 	public Title: string;
-	public Elem: ScrollTitle;
+	public Elem: string;
 }
 
 @Component({
@@ -16,8 +16,8 @@ export class StatsNavbarComponent {
 
 	@Input() parts: StatsNavbarPart[];
 
-	public scrollTo(elem: ScrollTitle): void {
-		console.log(elem);
-		elem.scrollTo();
+	public scrollTo(elem: string): void {
+		document.getElementById(elem).scrollIntoView();
+		window.scrollBy(0, -60);
 	}
 }

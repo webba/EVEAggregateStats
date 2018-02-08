@@ -5,7 +5,7 @@
 				<ngb-tab title="{{ stat.year }}">
 					<ng-template ngbTabContent>
 
-						<app-title-h1 #pvp name="PVP"></app-title-h1>
+						<app-title-h1 name="PVP"></app-title-h1>
 						<div *ngIf="stat.combat" class="row justify-content-md-center">
 							<div class="col-md-3 ">
 								<div class="row mb-2">
@@ -119,7 +119,7 @@
 									<app-character-stat [value]="stat.combat.kills_assists"></app-character-stat> kills</h4>
 							</div>
 						</div>
-						<app-title-h2 #modules name="Modules"></app-title-h2>
+						<app-title-h2 name="Modules"></app-title-h2>
 						<div class="row mb-5">
 							<div class="col-md-6">
 								<app-damage-chart [label]="'damage-chart-' + stat.year" [data]="stat.combat"></app-damage-chart>
@@ -225,7 +225,7 @@
 								</div>
 							</div>
 						</div>
-						<app-title-h2 #logi name="Logi"></app-title-h2>
+						<app-title-h2 name="Logi"></app-title-h2>
 						<!--Logi-->
 						<div class="row mb-5">
 							<!-- Shield -->
@@ -351,7 +351,7 @@
 								<app-repair-chart [label]="'recived-repair-chart-' + stat.year" [data]="stat.combat" [datapoints]='[{"name":"Shield","stat":"repair_shield_by_remote_amount"},{"name":"Armor","stat":"repair_armor_by_remote_amount"},{"name":"Hull","stat":"repair_hull_by_remote_amount"}]'></app-repair-chart>
 							</div>
 						</div>
-						<app-title-h2 #timers name="Timers"></app-title-h2>
+						<app-title-h2 name="Timers"></app-title-h2>
 						<!--Timers-->
 						<div class="row mb-5">
 							<!-- Duels -->
@@ -460,7 +460,7 @@
 							</div>
 						</div>
 
-						<app-title-h2 #travel name="Travel"></app-title-h2>
+						<app-title-h2 name="Travel"></app-title-h2>
 						<!--Travel-->
 						<div class="row mb-5">
 							<!-- Warps -->
@@ -562,7 +562,7 @@
 						</div>
 
 
-						<app-title-h2 #exploring name="Exploring"></app-title-h2>
+						<app-title-h2 name="Exploring"></app-title-h2>
 						<!--Exploring-->
 						<div class="row mb-5">
 							<!-- Directional Scan -->
@@ -635,7 +635,7 @@
 							</div>
 						</div>
 
-						<app-title-h1 #social name="Social"></app-title-h1>
+						<app-title-h1 name="Social"></app-title-h1>
 						<div class="row">
 							<!-- Fleet -->
 							<div class="col-md-4">
@@ -650,7 +650,7 @@
 								<app-card title="Other" [rdata]="stat" data='[{"title":"Notes created","stat":"social.add_note"},{"title":"Trades","stat":"social.direct_trades"},{"title":"Calendar events created","stat":"social.calendar_event_created"}]'></app-card>
 							</div>
 						</div>
-						<app-title-h2 #chat name="Chat"></app-title-h2>
+						<app-title-h2 name="Chat"></app-title-h2>
 						<div class="row">
 							<div class="col-md-4">
 								<app-card title="Need title" [rdata]="stat" data='[{"title":"Allaince","stat":"social.chat_messages_alliance"},{"title":"Corporation","stat":"social.chat_messages_corporation"},{"title":"Fleet","stat":"social.chat_messages_fleet"}]'></app-card>
@@ -664,7 +664,7 @@
 						</div>
 
 
-						<app-title-h1 #isk name="Iskies"></app-title-h1>
+						<app-title-h1 name="Isk"></app-title-h1>
 						<div class="row" style="font-size:20px">
 							<div class="col-md-6 text-center text-success">You made
 								<br>
@@ -691,9 +691,9 @@
 
 							</div>
 						</div>
-						<app-title-h1 #pve name="Pve"></app-title-h1>
-						<app-title-h1 #mining name="Mining"></app-title-h1>
-						<app-title-h1 #production name="Production"></app-title-h1>
+						<app-title-h1 name="PVE"></app-title-h1>
+						<app-title-h1 name="Mining"></app-title-h1>
+						<app-title-h1 name="Production"></app-title-h1>
 
 
 
@@ -2545,18 +2545,18 @@
 	</div>
 	<div class="d-none d-xl-block col-xl-2  bd-toc">
 		<app-stats-navbar [parts]="[
-									{Title: 'PVP', Elem: pvp}, 
-									{Title: 'Modules', Elem: modules}, 
-									{Title: 'Logi', Elem: logi}, 
-									{Title: 'Timers', Elem: timers},  
-									{Title: 'Travel', Elem: travel}, 
-									{Title: 'Exploring', Elem: exploring}, 
-									{Title: 'Social', Elem: social}, 
-									{Title: 'Chat', Elem: chat}, 
-									{Title: 'Isk', Elem: isk}, 
-									{Title: 'PVE', Elem: pve}, 
-									{Title: 'Mining', Elem: mining}, 
-									{Title: 'Production', Elem: production}
+									{Title: 'PVP', Elem: 'PVP'}, 
+									{Title: 'Modules', Elem: 'Modules'}, 
+									{Title: 'Logi', Elem: 'Logi'}, 
+									{Title: 'Timers', Elem: 'Timers'},  
+									{Title: 'Travel', Elem: 'Travel'}, 
+									{Title: 'Exploring', Elem: 'Exploring'}, 
+									{Title: 'Social', Elem: 'Social'}, 
+									{Title: 'Chat', Elem: 'Chat'}, 
+									{Title: 'Isk', Elem: 'Isk'}, 
+									{Title: 'PVE', Elem: 'PVE'}, 
+									{Title: 'Mining', Elem: 'Mining'}, 
+									{Title: 'Production', Elem: 'Production'}
 								]">
 		</app-stats-navbar>
 	</div>
