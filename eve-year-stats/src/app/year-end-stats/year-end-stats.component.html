@@ -664,44 +664,13 @@
 						</div>
 
 
-						<app-title-h1 name="Isk"></app-title-h1>
-						<div class="row" style="font-size:20px">
-							<div class="col-md-6 text-center text-success">You made
-								<br>
-								<app-character-stat [value]="stat.isk.in"></app-character-stat>
-								<b>Isk</b>
-							</div>
-							<div class="col-md-6 text-center text-danger">You spent
-								<br>
-								<app-character-stat [value]="stat.isk.out"></app-character-stat>
-								<b>Isk</b>
-							</div>
-						</div>
-						<div class="row" style="font-size:25px">
-							<div class="col-md-12 text-center">
-								<div *ngIf="stat.isk.in+stat.isk.out>=0" class="text-success">You made
-									<br>
-									<app-character-stat [value]="stat.isk.in+stat.isk.out"></app-character-stat>
-								</div>
-								<div *ngIf="stat.isk.in+stat.isk.out<0" class="text-danger">You lost
-									<br>
-									<app-character-stat [value]="stat.isk.in+stat.isk.out"></app-character-stat>
-									<b>Isk</b>
-								</div>
-
-							</div>
-						</div>
-						<app-title-h1 name="PVE"></app-title-h1>
-						<app-title-h1 name="Mining"></app-title-h1>
-						<app-title-h1 name="Production"></app-title-h1>
-						<app-title-h1 name="Iskies">
-						</app-title-h1>
+						<app-title-h1 name="Iskies"></app-title-h1>
 						<div class="row justify-content-md-center mb-5" style="font-size:20px">
 							<div class="col-md-3 text-center text-success card box-shadow flex-nowrap">You made
 								<br>
 								<app-character-stat [value]="stat.isk.in" unit="ISK"></app-character-stat>
 							</div>
-							<div class="col-md-3 offset-md-1 text-center text-danger card box-shadow">You spent
+							<div class="col-md-3 offset-md-1 text-center text-danger card box-shadow">You spent 
 								<br>
 								<app-character-stat [value]="stat.isk.out" unit="ISK"> ISK</app-character-stat>
 							</div>
@@ -718,6 +687,24 @@
 								</div>
 							</div>
 						</div>
+						<app-title-h1 name="Pve"></app-title-h1>
+						<!-- PVE -->
+						<div class="row">
+							<!-- Fleet -->
+							<div class="col-md-4">
+								<app-card title="Missions" [rdata]="stat" data='[{"title":"Missions completed","stat":"pve.missions_succeeded"},{"title":"Agent missions completed","stat":"pve.dungeons_completed_agent"},{"title":"DED missions completed","stat":"pve.dungeons_completed_agent"}]'></app-card>
+							</div>
+							<!-- Combat -->
+							<div class="col-md-4">
+								<app-card title="Combat" [rdata]="stat" data='[{"title":"Damage from npcs","stat":"combat.damage_from_np_cs_amount"},{"title":"Npcs have shot you","stat":"combat.damage_from_np_cs_num_shots","suffix":"times"}]'></app-card>
+							</div>
+							<!-- Other -->
+							<div class="col-md-4">
+								<app-card title="Other" [rdata]="stat" data='[{"title":"Notes created","stat":"social.add_note"},{"title":"Trades","stat":"social.direct_trades"},{"title":"Calendar events created","stat":"social.calendar_event_created"}]'></app-card>
+							</div>
+						</div>
+						<app-title-h1 name="Mining"></app-title-h1>
+						<app-title-h1 name="Production"></app-title-h1>
 					</ng-template>
 				</ngb-tab>
 			</ng-template>
