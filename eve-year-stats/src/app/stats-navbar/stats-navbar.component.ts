@@ -20,4 +20,11 @@ export class StatsNavbarComponent {
 		document.getElementById(elem).scrollIntoView();
 		window.scrollBy(0, -60);
 	}
+
+	/**
+	 * scrollToTop
+	 */
+	public scrollToTop() {
+		window.scrollTo(0, 0);
+	}
 }
