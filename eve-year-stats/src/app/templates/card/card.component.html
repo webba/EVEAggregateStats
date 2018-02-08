@@ -12,7 +12,7 @@
 			</div>
 		<div class="row" *ngFor="let data of data">
 			<div class="col-md-12 text-center p-2">{{data.title}}
-				<b>{{getDataPoint(data.stat)}}</b>
+				<b>{{getDataPoint(data.stat).toLocaleString()}}</b>
 			</div>
 		</div>
 	</div>

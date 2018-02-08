@@ -25,7 +25,11 @@
     filter: url(/assets/img/filters.svg#yellow);
 }
 
+.img-round{
+    border-radius: 100%;
+}
 .bd-toc {
+
 	position: webkit sticky;
 	position: fixed;
 	top: 4rem;
