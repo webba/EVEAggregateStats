@@ -205,7 +205,7 @@
 									<div class="col-md-12">
 										<div class="row">
 											<div class="col-md-12 text-center">
-												<img src="https://imageserver.eveonline.com/Type/17765_64.png" alt="Webb">
+												<img src="https://imageserver.eveonline.com/Type/25_64.png" alt="Webb" class="img-round">
 											</div>
 										</div>
 										<div class="row">
@@ -694,9 +694,30 @@
 						<app-title-h1 name="PVE"></app-title-h1>
 						<app-title-h1 name="Mining"></app-title-h1>
 						<app-title-h1 name="Production"></app-title-h1>
-
-
-
+						<app-title-h1 name="Iskies">
+						</app-title-h1>
+						<div class="row justify-content-md-center mb-5" style="font-size:20px">
+							<div class="col-md-3 text-center text-success card box-shadow flex-nowrap">You made
+								<br>
+								<app-character-stat [value]="stat.isk.in" unit="ISK"></app-character-stat>
+							</div>
+							<div class="col-md-3 offset-md-1 text-center text-danger card box-shadow">You spent
+								<br>
+								<app-character-stat [value]="stat.isk.out" unit="ISK"> ISK</app-character-stat>
+							</div>
+						</div>
+						<div class="row justify-content-md-center px-1 mx-1" style="font-size:25px">
+							<div class="col-md-4 text-center card box-shadow p-1">
+								<div *ngIf="stat.isk.in+stat.isk.out>=0" class="text-success">You made
+									<br>
+									<app-character-stat [value]="stat.isk.in+stat.isk.out" unit="ISK"></app-character-stat>
+								</div>
+								<div *ngIf="stat.isk.in+stat.isk.out<0" class="text-danger">You lost
+									<br>
+									<app-character-stat [value]="stat.isk.in+stat.isk.out" unit="ISK"></app-character-stat>
+								</div>
+							</div>
+						</div>
 					</ng-template>
 				</ngb-tab>
 			</ng-template>
