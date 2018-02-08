@@ -23,3 +23,7 @@
 .side-entry a:hover {
 	color: #007bff;
 }
+
+.top a{
+	margin-top: 1rem;
+}

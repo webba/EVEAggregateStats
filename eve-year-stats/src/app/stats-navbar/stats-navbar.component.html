@@ -2,6 +2,9 @@
 	<li *ngFor="let part of parts" class="side-entry">
 		<a (click)="scrollTo(part.Elem)" class="">{{ part.Title }}</a>
 	</li>
+	<li class="side-entry top">
+		<a (click)="scrollToTop()">Top</a>
+	</li>
 </ul>
 
 <!--
