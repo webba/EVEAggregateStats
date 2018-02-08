@@ -20,6 +20,7 @@ import { TitleH1Component } from './templates/title-h1/title-h1.component';
 import { TitleH2Component } from './templates/title-h1/title-h2.component';
 import { RepairChartComponent } from './charts/repair-chart/repair-chart.component';
 import { CardComponent } from './templates/card/card.component';
+import { StatsNavbarComponent } from './stats-navbar/stats-navbar.component';
 const appRoutes: Routes = [
 	{ path: 'oauth-callback', component: OAuthCallbackComponent },
 	{
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
 		TitleH2Component,
 		RepairChartComponent,
 		CardComponent,
+		StatsNavbarComponent,
 	],
 	imports: [
 		BrowserModule,

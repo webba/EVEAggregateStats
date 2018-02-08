@@ -28,3 +28,11 @@
 .img-round{
     border-radius: 100%;
 }
+.bd-toc {
+
+	position: webkit sticky;
+	position: fixed;
+	top: 4rem;
+	right:0rem;
+	overflow-y: auto;
+}

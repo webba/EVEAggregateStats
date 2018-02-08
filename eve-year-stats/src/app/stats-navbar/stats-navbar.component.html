@@ -1,0 +1,29 @@
+<ul class="section-bar">
+	<li *ngFor="let part of parts" class="side-entry">
+		<a (click)="scrollTo(part.Elem)" class="">{{ part.Title }}</a>
+	</li>
+</ul>
+
+<!--
+<nav class="navbar navbar-light bg-light col-md-2 sidebar zindex-sticky">
+  <a *ngFor="let part of parts" class="navbar-brand" (click)="scrollTo(part.Elem)">{{ part.Title }}</a>
+  < <a class="navbar-brand">Navbar</a>
+  <nav class="nav nav-pills flex-column">
+    <a class="nav-link" href="#pvp">PVP</a>
+    <nav class="nav nav-pills flex-column">
+      <a class="nav-link ml-3 my-1" href="#modules">Modules</a>
+      <a class="nav-link ml-3 my-1" href="#logi">Logi</a>
+      <a class="nav-link ml-3 my-1" href="#pvp-aggresion">PVP aggresio</a>
+    </nav>
+    <a class="nav-link" href="#travel">Travel</a>
+    <nav class="nav nav-pills flex-column">
+      <a class="nav-link ml-3 my-1" href="#exploring">Exploring</a>
+    </nav>
+    <a class="nav-link" href="#chat">Chat</a>
+    <a class="nav-link" href="#iskies">Iskies</a>
+    <a class="nav-link" href="#pve">Pve</a>
+    <a class="nav-link" href="#mining">Mining</a>
+    <a class="nav-link" href="#production">Production</a>
+  </nav> 
+</nav>
+-->
