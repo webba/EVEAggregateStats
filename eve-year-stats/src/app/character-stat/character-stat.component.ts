@@ -15,10 +15,6 @@ export class CharacterStatComponent {
 	constructor() { }
 
 	public getValue(): number {
-		const val = _get(this.value, this.path, null);
-		if (val === null) {
-			return 0;
-		}
-		return val;
+		return _get(this.value, this.path, 0);
 	}
 }
