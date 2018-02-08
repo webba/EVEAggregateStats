@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class CharacterStatComponent {
 	@Input() label: string;
 	@Input() value: Object;
+	@Input() unit: Object;
 
 	constructor() { }
 

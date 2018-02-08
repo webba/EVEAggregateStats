@@ -24,3 +24,7 @@
 .timer.timer-yellow{
     filter: url(/assets/img/filters.svg#yellow);
 }
+
+.img-round{
+    border-radius: 100%;
+}

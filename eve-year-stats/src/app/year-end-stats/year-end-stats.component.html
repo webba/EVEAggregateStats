@@ -202,7 +202,7 @@
 							<div class="col-md-12">
 								<div class="row">
 									<div class="col-md-12 text-center">
-										<img src="https://imageserver.eveonline.com/Type/17765_64.png" alt="Webb">
+										<img src="https://imageserver.eveonline.com/Type/25_64.png" alt="Webb" class="img-round">
 									</div>
 								</div>
 								<div class="row">
@@ -662,30 +662,31 @@
 
 
 				<app-title-h1 name="Iskies"></app-title-h1>
-				<div class="row"  style="font-size:20px">
-					<div class="col-md-6 text-center text-success">You made
+				<div class="row justify-content-md-center mb-5"  style="font-size:20px">
+					<div class="col-md-3 text-center text-success card box-shadow flex-nowrap">You made
 						<br>
-						<app-character-stat [value]="stat.isk.in"></app-character-stat> <b>Isk</b>
+						<app-character-stat [value]="stat.isk.in" unit="ISK"></app-character-stat>
 					</div>
-					<div class="col-md-6 text-center text-danger">You spent
+					<div class="col-md-3 offset-md-1 text-center text-danger card box-shadow">You spent
 						<br>
-						<app-character-stat [value]="stat.isk.out"></app-character-stat> <b>Isk</b>
+						<app-character-stat [value]="stat.isk.out" unit="ISK"> ISK</app-character-stat>
 					</div>
 				</div>
-				<div class="row"  style="font-size:25px">
-					<div class="col-md-12 text-center">
+				<div class="row justify-content-md-center px-1 mx-1"  style="font-size:25px">
+					<div class="col-md-4 text-center card box-shadow p-1">
 						<div *ngIf="stat.isk.in+stat.isk.out>=0" class="text-success">You made
 							<br>
-							<app-character-stat [value]="stat.isk.in+stat.isk.out"></app-character-stat>
+							<app-character-stat [value]="stat.isk.in+stat.isk.out" unit="ISK"></app-character-stat>
 						</div>
 						<div *ngIf="stat.isk.in+stat.isk.out<0" class="text-danger">You lost
 							<br>
-							<app-character-stat [value]="stat.isk.in+stat.isk.out"></app-character-stat> <b>Isk</b>
+							<app-character-stat [value]="stat.isk.in+stat.isk.out" unit="ISK"></app-character-stat>
 						</div>
 
 					</div>
 				</div>
 				<app-title-h1 name="Pve"></app-title-h1>
+
 				<app-title-h1 name="Mining"></app-title-h1>
 				<app-title-h1 name="Production"></app-title-h1>
 
@@ -2205,24 +2206,24 @@
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4">
 					<h1 clas="text-center" id="orbital">orbital</h1>
 				</div>
-				<div *ngIf="stat.orbital" class="row justify-content-md-center">
+				<div class="row justify-content-md-center">
 					<table class="table table-dark">
 						<tr>
 							<td>strike_characters_killed</td>
 							<td>
-								<app-character-stat [value]="stat.orbital.strike_characters_killed"></app-character-stat>
+								0
 							</td>
 						</tr>
 						<tr>
 							<td>strike_damage_to_players_armor_amount</td>
 							<td>
-								<app-character-stat [value]="stat.orbital.strike_damage_to_players_armor_amount"></app-character-stat>
+								0
 							</td>
 						</tr>
 						<tr>
 							<td>strike_damage_to_players_shield_amount</td>
 							<td>
-								<app-character-stat [value]="stat.orbital.strike_damage_to_players_shield_amount"></app-character-stat>
+								0
 							</td>
 						</tr>
 					</table>
@@ -2230,7 +2231,7 @@
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4">
 					<h1 clas="text-center" id="pve">pve</h1>
 				</div>
-				<div *ngIf="stat.pve" class="row justify-content-md-center">
+				<div class="row justify-content-md-center">
 					<table class="table table-dark">
 						<tr>
 							<td>dungeons_completed_agent</td>
@@ -2261,7 +2262,7 @@
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4">
 					<h1 clas="text-center" id="social">social</h1>
 				</div>
-				<div *ngIf="stat.social" class="row justify-content-md-center">
+				<div class="row justify-content-md-center">
 					<table class="table table-dark">
 						<tr>
 							<td>add_contact_bad</td>
@@ -2418,7 +2419,7 @@
 				<div class=" row justify-content-md-center border-bottom pb-3 mb-4">
 					<h1 clas="text-center" id="travel">travel</h1>
 				</div>
-				<div *ngIf="stat.travel" class="row justify-content-md-center">
+				<div class="row justify-content-md-center">
 					<table class="table table-dark">
 						<tr>
 							<td>acceleration_gate_activations</td>
