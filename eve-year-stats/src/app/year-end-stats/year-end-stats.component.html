@@ -1,12 +1,12 @@
 <div class="row">
-	<div class="col-12 col-xl-8 offset-2">
+	<div class="col-12 col-xl-8 offset-xl-2">
 		<ngb-tabset *ngIf="getSelectedStats() !== null">
 			<ng-template ngFor let-stat [ngForOf]="getSelectedStats()">
 				<ngb-tab title="{{ stat.year }}">
 					<ng-template ngbTabContent>
 
 						<app-title-h1 name="PVP"></app-title-h1>
-						<div *ngIf="stat.combat" class="row justify-content-md-center">
+						<div *ngIf="stat.combat" class="row justify-content-md-center px-3">
 							<div class="col-md-3 ">
 								<div class="row mb-2">
 									<div class="col-md-12 card box-shadow py-md-2">
