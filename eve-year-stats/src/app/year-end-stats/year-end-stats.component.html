@@ -686,6 +686,21 @@
 					</div>
 				</div>
 				<app-title-h1 name="Pve"></app-title-h1>
+				<!-- PVE -->
+				<div class="row">
+					<!-- Fleet -->
+					<div class="col-md-4">
+						<app-card title="Missions" [rdata]="stat" data='[{"title":"Missions completed","stat":"pve.missions_succeeded"},{"title":"Agent missions completed","stat":"pve.dungeons_completed_agent"},{"title":"DED missions completed","stat":"pve.dungeons_completed_agent"}]'></app-card>
+					</div>
+					<!-- Combat -->
+					<div class="col-md-4">
+						<app-card title="Combat" [rdata]="stat" data='[{"title":"Damage from npcs","stat":"combat.damage_from_np_cs_amount"},{"title":"Npcs have shot you","stat":"combat.damage_from_np_cs_num_shots","suffix":"times"}]'></app-card>
+					</div>
+					<!-- Other -->
+					<div class="col-md-4">
+						<app-card title="Other" [rdata]="stat" data='[{"title":"Notes created","stat":"social.add_note"},{"title":"Trades","stat":"social.direct_trades"},{"title":"Calendar events created","stat":"social.calendar_event_created"}]'></app-card>
+					</div>
+				</div>
 
 				<app-title-h1 name="Mining"></app-title-h1>
 				<app-title-h1 name="Production"></app-title-h1>
