@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { get as _get } from 'lodash';
 
 @Component({
 	selector: 'app-card',
@@ -21,15 +22,7 @@ export class CardComponent implements OnInit {
 	}
 
 	private getDataPoint(key: string): number {
-		const droute = key.split('.');
-		if (!this.rdata) {
-			return 0;
-		} else if (!this.rdata[droute[0]]) {
-			return 0;
-		} else if (!this.rdata[droute[0]][droute[1]]) {
-			return 0;
-		}
-		return this.rdata[droute[0]][droute[1]];
+		return _get(this.rdata, key, 0);
 	}
 
 }
