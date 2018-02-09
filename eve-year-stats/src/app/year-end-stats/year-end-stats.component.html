@@ -683,7 +683,7 @@
 								</div>
 								<div *ngIf="stat.isk.in+stat.isk.out<0" class="text-danger">You lost
 									<br>
-									<app-character-stat [value]="stat" path="isk.in+stat.isk.out" unit="ISK"></app-character-stat>
+									<app-character-stat [value]="stat" path="isk.in" path2="isk.out" unit="ISK"></app-character-stat>
 								</div>
 							</div>
 						</div>
@@ -735,7 +735,7 @@
 								<tr *ngFor="let prop of getKeys(esiPropeties[property].properties)">
 									<td>{{ prop }}</td>
 									<td>
-										<app-character-stat [value]="stat" path="property][prop]"></app-character-stat>
+										<app-character-stat [value]="stat" [path]="property + '.' + prop"></app-character-stat>
 									</td>
 								</tr>
 							</table>
