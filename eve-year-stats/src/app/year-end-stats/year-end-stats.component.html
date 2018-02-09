@@ -4,9 +4,26 @@
 			<ng-template ngFor let-stat [ngForOf]="getSelectedStats()">
 				<ngb-tab title="{{ stat.year }}">
 					<ng-template ngbTabContent>
+						<app-title-h1 name="Playtime">
+						</app-title-h1>
+						<div class="row justify-content-md-center mb-5" style="font-size:20px">
+							<div class="col-md-3 text-center card box-shadow">You Played
+								<br>
+								<app-character-stat [value]="stat" path="character.minutes" unit="minutes"></app-character-stat>
+							</div>
+							<div class="col-md-3 offset-md-1 text-center card box-shadow">You Played on
+								<br>
+								<app-character-stat [value]="stat" path="character.days_of_activity" unit="days"></app-character-stat>
+							</div>
+							<div class="col-md-3 offset-md-1 text-center card box-shadow">
+								You Started
+								<br>
+								<app-character-stat [value]="stat" path="character.sessions_started" unit="sessions"></app-character-stat>
+							</div>
+						</div>
 
 						<app-title-h1 name="PVP"></app-title-h1>
-						<div *ngIf="stat.combat" class="row justify-content-md-center px-3">
+						<div class="row justify-content-md-center px-3">
 							<div class="col-md-3 ">
 								<div class="row mb-2">
 									<div class="col-md-12 card box-shadow py-md-2">
@@ -119,6 +136,7 @@
 									<app-character-stat [value]="stat" path="combat.kills_assists"></app-character-stat> kills</h4>
 							</div>
 						</div>
+
 						<app-title-h2 name="Modules"></app-title-h2>
 						<div class="row mb-5">
 							<div class="col-md-6">
@@ -225,6 +243,7 @@
 								</div>
 							</div>
 						</div>
+
 						<app-title-h2 name="Logi"></app-title-h2>
 						<!--Logi-->
 						<div class="row mb-5">
@@ -670,7 +689,7 @@
 								<br>
 								<app-character-stat [value]="stat" path="isk.in" unit="ISK"></app-character-stat>
 							</div>
-							<div class="col-md-3 offset-md-1 text-center text-danger card box-shadow">You spent 
+							<div class="col-md-3 offset-md-1 text-center text-danger card box-shadow">You spent
 								<br>
 								<app-character-stat [value]="stat" path="isk.out" unit="ISK"> ISK</app-character-stat>
 							</div>
@@ -679,7 +698,7 @@
 							<div class="col-md-4 text-center card box-shadow p-1">
 								<div *ngIf="stat.isk.in+stat.isk.out>=0" class="text-success">You made
 									<br>
-									<app-character-stat [value]="stat" path="isk.in+stat.isk.out" unit="ISK"></app-character-stat>
+									<app-character-stat [value]="stat" path="isk.in" path2="isk.out" unit="ISK"></app-character-stat>
 								</div>
 								<div *ngIf="stat.isk.in+stat.isk.out<0" class="text-danger">You lost
 									<br>
@@ -706,19 +725,19 @@
 						<app-title-h1 name="Mining"></app-title-h1>
 						<!-- Mining -->
 						<div class="row">
-								<!-- Mining -->
-								<div class="col-md-4">
-									<app-card title="Gas harvested" [rdata]="stat" data='[{"title":"","stat":"mining.ore_harvestable_cloud"}]'></app-card>
-								</div>
-								<!-- Combat -->
-								<div class="col-md-4">
-									<app-card title="Combat" [rdata]="stat" data='[{"title":"Damage from npcs","stat":"combat.damage_from_np_cs_amount"},{"title":"Npcs have shot you","stat":"combat.damage_from_np_cs_num_shots","suffix":"times"}]'></app-card>
-								</div>
-								<!-- Other -->
-								<div class="col-md-4">
-									<app-card title="Other" [rdata]="stat" data='[{"title":"Notes created","stat":"social.add_note"},{"title":"Trades","stat":"social.direct_trades"},{"title":"Calendar events created","stat":"social.calendar_event_created"}]'></app-card>
-								</div>
+							<!-- Mining -->
+							<div class="col-md-4">
+								<app-card title="Gas harvested" [rdata]="stat" data='[{"title":"","stat":"mining.ore_harvestable_cloud"}]'></app-card>
 							</div>
+							<!-- Combat -->
+							<div class="col-md-4">
+								<app-card title="Combat" [rdata]="stat" data='[{"title":"Damage from npcs","stat":"combat.damage_from_np_cs_amount"},{"title":"Npcs have shot you","stat":"combat.damage_from_np_cs_num_shots","suffix":"times"}]'></app-card>
+							</div>
+							<!-- Other -->
+							<div class="col-md-4">
+								<app-card title="Other" [rdata]="stat" data='[{"title":"Notes created","stat":"social.add_note"},{"title":"Trades","stat":"social.direct_trades"},{"title":"Calendar events created","stat":"social.calendar_event_created"}]'></app-card>
+							</div>
+						</div>
 						<app-title-h1 name="Production"></app-title-h1>
 					</ng-template>
 				</ngb-tab>
