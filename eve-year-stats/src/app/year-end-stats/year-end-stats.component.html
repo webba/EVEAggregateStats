@@ -698,11 +698,11 @@
 							<div class="col-md-4 text-center card box-shadow p-1">
 								<div *ngIf="stat.isk.in+stat.isk.out>=0" class="text-success">You made
 									<br>
-									<app-character-stat [value]="stat" path="isk.in" path2="isk.out" unit="ISK"></app-character-stat>
+									<app-character-stat [value]="stat" [sumpath]="['isk.in', 'isk.out']" unit="ISK"></app-character-stat>
 								</div>
 								<div *ngIf="stat.isk.in+stat.isk.out<0" class="text-danger">You lost
 									<br>
-									<app-character-stat [value]="stat" path="isk.in" path2="isk.out" unit="ISK"></app-character-stat>
+									<app-character-stat [value]="stat" [sumpath]="['isk.in', 'isk.out']" unit="ISK"></app-character-stat>
 								</div>
 							</div>
 						</div>
@@ -724,18 +724,55 @@
 						</div>
 						<app-title-h1 name="Mining"></app-title-h1>
 						<!-- Mining -->
-						<div class="row">
-							<!-- Mining -->
-							<div class="col-md-4">
-								<app-card title="Gas harvested" [rdata]="stat" data='[{"title":"","stat":"mining.ore_harvestable_cloud"}]'></app-card>
-							</div>
-							<!-- Combat -->
-							<div class="col-md-4">
-								<app-card title="Combat" [rdata]="stat" data='[{"title":"Damage from npcs","stat":"combat.damage_from_np_cs_amount"},{"title":"Npcs have shot you","stat":"combat.damage_from_np_cs_num_shots","suffix":"times"}]'></app-card>
-							</div>
-							<!-- Other -->
-							<div class="col-md-4">
-								<app-card title="Other" [rdata]="stat" data='[{"title":"Notes created","stat":"social.add_note"},{"title":"Trades","stat":"social.direct_trades"},{"title":"Calendar events created","stat":"social.calendar_event_created"}]'></app-card>
+						<div class="row card box-shadow px-1 mx-1">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-3">
+										<div class="row">
+											<div class="col-md-12 text-center p-2">Total Ore Mined
+												<app-character-stat [value]="stat" [sumpath]="[
+											'ore_arkonor',
+											'ore_bistot',
+											'ore_crokite',
+											'ore_dark_ochre',
+											'ore_gneiss',
+											'ore_hedbergite',
+											'ore_hemorphite',
+											'ore_jaspet',
+											'ore_kernite',
+											'ore_mercoxit',
+											'ore_omber',
+											'ore_plagioclase',
+											'ore_pyroxeres',
+											'ore_scordite',
+											'ore_spodumain',
+											'ore_veldspar'
+										]" unit="m3"></app-character-stat>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="row">
+											<div class="col-md-12 text-center p-2">Ice Mined
+												<app-character-stat [value]="stat" path="mining.ore_ice" unit="m3"></app-character-stat>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="row">
+											<div class="col-md-12 text-center p-2">Gas Harvested
+												<app-character-stat [value]="stat" path="mining.ore_harvestable_cloud" unit="m3"></app-character-stat>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="row">
+											<div class="col-md-12 text-center p-2">Drone Ore Mined
+												<app-character-stat [value]="stat" path="mining.drone_mine" unit="m3"></app-character-stat>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<app-title-h1 name="Production"></app-title-h1>
