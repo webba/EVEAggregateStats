@@ -1,9 +1,13 @@
 <div class="row">
 	<div class="col-12 col-xl-8 offset-xl-2">
+			<div class="alert alert-info" role="alert">
+					Some stats are currently not correct, CCP is aware of this and is looking into it.
+				</div>
 		<ngb-tabset *ngIf="getSelectedStats() !== null">
 			<ng-template ngFor let-stat [ngForOf]="getSelectedStats()">
 				<ngb-tab title="{{ stat.year }}">
 					<ng-template ngbTabContent>
+							
 						<app-title-h1 name="Playtime">
 						</app-title-h1>
 						<div class="row justify-content-md-center mb-5" style="font-size:20px">
