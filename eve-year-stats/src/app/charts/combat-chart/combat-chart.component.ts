@@ -30,7 +30,6 @@ export class CombatChartComponent implements OnInit {
 
 	public getChart(): void {
 		if (!this.chart) {
-			console.log(this.data);
 			this.chart = new Chart(this.label, {
 				type: 'radar',
 				options: {
@@ -63,8 +62,6 @@ export class CombatChartComponent implements OnInit {
 				}
 			});
 		} else if (this.lastData !== this.data && typeof this.chart.datasets !== 'undefined') {
-			console.log(this.chart.datasets);
-			console.log(this.data);
 			this.lastData = this.data;
 			this.chart.datasets[0].data = [
 				this.getDataPoint('kills_high_sec'),

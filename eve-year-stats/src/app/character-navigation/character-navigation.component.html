@@ -8,12 +8,18 @@
 	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 		<ul class="navbar-nav mr-auto">
 			<li *ngFor="let character of getCharacters()" class="nav-item link">
-				<a *ngIf="character.Selected === true && !getAggregate()" class="nav-link user active" (click)="setSelectedCharacter(character.CharacterID)">
+				<a *ngIf="character.Selected === true && !getAggregate()" class="nav-link user active hover-container" (click)="setSelectedCharacter(character.CharacterID)">
 					<img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
 					<span class="sr-only">(current)</span>
+					<div class="hover-btn">
+						<button class="btn btn-danger" type="button" (click)="deleteCharacter(character.CharacterID)">Delete</button>
+					</div>
 				</a>
-				<a *ngIf="character.Selected === false || getAggregate()" class="nav-link user link" (click)="setSelectedCharacter(character.CharacterID)">
+				<a *ngIf="character.Selected === false || getAggregate()" class="nav-link user link hover-container" (click)="setSelectedCharacter(character.CharacterID)">
 					<img src="https://imageserver.eveonline.com/Character/{{ character.CharacterID }}_32.jpg"> {{ character.CharacterName }}
+					<div class="hover-btn">
+						<button class="btn btn-danger" type="button" (click)="deleteCharacter(character.CharacterID)">Delete</button>
+					</div>
 				</a>
 			</li>
 			<li *ngIf="getCharacters().length > 0" class="nav-item user link">

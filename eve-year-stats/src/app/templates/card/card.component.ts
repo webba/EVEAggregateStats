@@ -16,9 +16,6 @@ export class CardComponent implements OnInit {
 
 	ngOnInit() {
 		this.data = JSON.parse(this.data);
-		// console.log('*********');
-		// console.log(this.img);
-		// console.log(this.data);
 	}
 
 	private getDataPoint(key: string): number {

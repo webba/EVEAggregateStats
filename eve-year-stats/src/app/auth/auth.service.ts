@@ -180,8 +180,9 @@ export class AuthService {
 		let save = false;
 		for (let index = 0; index < this.characters.length; index++) {
 			if (this.characters[index].CharacterID === CharacterID) {
-				this.characters.splice(index);
+				this.characters.splice(index, 1);
 				save = true;
+				break;
 			}
 		}
 		if (save) {

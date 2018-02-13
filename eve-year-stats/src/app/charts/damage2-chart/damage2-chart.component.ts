@@ -93,8 +93,6 @@ export class Damage2ChartComponent implements OnInit {
 				}
 			});
 		} else if (this.lastData !== this.data && typeof this.chart.datasets !== 'undefined') {
-			console.log(this.chart.datasets);
-			console.log(this.data);
 			this.lastData = this.data;
 			this.chart.datasets[0].data = [
 				this.getDataPoint('damage_to_players_energy_amount'),

@@ -6,3 +6,24 @@ span.login-plus {
 	vertical-align: middle;
 	border-style: none;
 }
+
+.hover-container{
+	position: relative;
+}
+
+.hover-btn {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	display: none;
+	padding-top: 5px;
+}
+
+.hover-btn .btn {
+	position: relative;
+	left: -50%;
+}
+
+.hover-container:hover .hover-btn {
+	display: block;
+}

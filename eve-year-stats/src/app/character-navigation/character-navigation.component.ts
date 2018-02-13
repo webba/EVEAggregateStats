@@ -47,4 +47,8 @@ export class CharacterNavigationComponent implements OnInit {
 	public getAggregate() {
 		return this._authService.getAggregate();
 	}
+
+	public deleteCharacter(CharacterID: number): void {
+		this._authService.removeCharacter(CharacterID);
+	}
 }

@@ -30,7 +30,6 @@ export class DamageChartComponent implements OnInit {
 
 	public getChart(): void {
 	 if (!this.chart) {
-		console.log(this.data);
 		this.chart = new Chart(this.label, {
 			type: 'horizontalBar',
 			options: {
@@ -94,8 +93,6 @@ export class DamageChartComponent implements OnInit {
 			}
 		});
 	 } else if (this.lastData !== this.data && typeof this.chart.datasets !== 'undefined') {
-		console.log(this.chart.datasets);
-		console.log(this.data);
 		this.lastData = this.data;
 		this.chart.datasets[0].data = [
 			this.getDataPoint('damage_to_players_energy_amount'),

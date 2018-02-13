@@ -22,7 +22,6 @@ export class YearEndStatsComponent implements OnInit {
 	 }
 
 	ngOnInit() {
-		console.log(ESIProperties);
 	}
 
 	public getSelectedCharacter(): CharacterData {
@@ -38,7 +37,6 @@ export class YearEndStatsComponent implements OnInit {
 	}
 
 	public getKeys(obj: Object): String[] {
-		console.log(obj, Object.keys(obj));
 		return Object.keys(obj);
 	}
 }
