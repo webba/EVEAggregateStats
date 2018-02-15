@@ -1,13 +1,13 @@
 <div class="row">
 	<div class="col-12 col-xl-8 offset-xl-2">
-			<div class="alert alert-info" role="alert">
-					Some stats are currently not correct, CCP is aware of this and is looking into it.
-				</div>
+		<div class="alert alert-info" role="alert">
+			Some stats are currently not correct, CCP is aware of this and is looking into it.
+		</div>
 		<ngb-tabset *ngIf="getSelectedStats() !== null">
 			<ng-template ngFor let-stat [ngForOf]="getSelectedStats()">
 				<ngb-tab title="{{ stat.year }}">
 					<ng-template ngbTabContent>
-							
+
 						<app-title-h1 name="Playtime">
 						</app-title-h1>
 						<div class="row justify-content-md-center mb-5" style="font-size:20px">
@@ -728,7 +728,7 @@
 						</div>
 						<app-title-h1 name="Mining"></app-title-h1>
 						<!-- Mining -->
-						<div class="row card box-shadow px-1 mx-1">
+						<div class="row card box-shadow px-1 mx-1 mb-2">
 							<div class="col-md-12">
 								<div class="row">
 									<div class="col-md-3">
@@ -777,6 +777,11 @@
 										</div>
 									</div>
 								</div>
+							</div>
+						</div>
+						<div class="row card box-shadow px-5 py-2 mx-1 mb-2">
+							<div class="col-md-12">
+								<app-mining [label]="'mining-' + stat.year" [data]="stat.mining"></app-mining>
 							</div>
 						</div>
 						<app-title-h1 name="Production"></app-title-h1>
